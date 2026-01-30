@@ -3,7 +3,7 @@ import './Speaker.css';
 import speaker1 from '../assets/speaker/ANH1.png';
 import speaker1Detail from '../assets/speaker/details/ANH1.png';
 
-interface Speaker {
+interface ISpeaker {
     id: number;
     name: string;
     title: string;
@@ -16,7 +16,7 @@ interface Speaker {
     };
 }
 
-const speakers: Speaker[] = [
+const speakers: ISpeaker[] = [
     {
         id: 1,
         name: 'Nguyễn Văn A',
@@ -64,7 +64,7 @@ const speakers: Speaker[] = [
 ];
 
 const Speaker: React.FC = () => {
-    const [ selectedSpeaker, setSelectedSpeaker ] = useState<Speaker>( speakers[ 0 ] );
+    const [ selectedSpeaker, setSelectedSpeaker ] = useState<ISpeaker>( speakers[ 0 ] );
 
     return (
         <section id="speakers" className="speaker-section">
