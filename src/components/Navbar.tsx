@@ -12,6 +12,9 @@ const Navbar: React.FC = () => {
                     <li className="navbar-item">
                         <a href="#problems" className="navbar-link">Problems</a>
                     </li>
+                    <li className="navbar-item">
+                        <a href="#agenda" className="navbar-link">Agenda</a>
+                    </li>
                 </ul>
             </div>
         </nav>
