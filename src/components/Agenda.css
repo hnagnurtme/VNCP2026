@@ -167,7 +167,7 @@
 .timeline-item {
     position: relative;
     display: grid;
-    grid-template-columns: 100px 40px 1fr;
+    grid-template-columns: 150px 40px 1fr;
     align-items: center;
     gap: 1.5rem;
     opacity: 0;
@@ -235,7 +235,7 @@
     font-size: clamp(1.5rem, 2.5vw, 1.9rem);
     font-weight: 700;
     color: #ffffff;
-    padding: 0.8rem 1.5rem;
+    padding: 0.6rem 1rem;
     background: linear-gradient(135deg, rgba(95, 195, 228, 0.25), rgba(255, 102, 204, 0.25));
     border: 2.5px solid transparent;
     background-clip: padding-box;
@@ -502,6 +502,11 @@
         grid-template-columns: 90px 36px 1fr;
         gap: 1.2rem;
     }
+
+    .timeline-date-badge {
+        font-size: 1.3rem;
+        padding: 0.5rem 0.8rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -526,7 +531,7 @@
 
     .timeline-date-badge {
         font-size: 1.2rem;
-        padding: 0.6rem 1rem;
+        padding: 0.5rem 0.8rem;
     }
 
     .timeline-content {
