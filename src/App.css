@@ -1,38 +1,306 @@
-.App {
-  text-align: center;
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #0a0e27;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Background Image */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Subtle Overlay for Text Readability */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 14, 39, 0.4);
+    z-index: 2;
 }
 
-.App-link {
-  color: #61dafb;
+/* Decorative Pattern Layer */
+.hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0.04;
+    background-image:
+        repeating-linear-gradient(45deg,
+            transparent,
+            transparent 35px,
+            rgba(255, 102, 204, 0.06) 35px,
+            rgba(255, 102, 204, 0.06) 70px),
+        repeating-linear-gradient(-45deg,
+            transparent,
+            transparent 35px,
+            rgba(71, 229, 160, 0.06) 35px,
+            rgba(71, 229, 160, 0.06) 70px);
+    background-size: 100px 100px;
+    animation: patternMove 20s linear infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes patternMove {
+    0% {
+        background-position: 0 0, 0 0;
+    }
+
+    100% {
+        background-position: 100px 100px, -100px -100px;
+    }
+}
+
+/* Content Container */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: var(--spacing-2xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Event Year */
+.event-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-md);
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Main Title */
+.event-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 10vw, 6rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    margin: 0;
+    margin-bottom: var(--spacing-lg);
+    color: #ffffff;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    animation: fadeInScale 1s ease-out 0.4s forwards;
+    text-shadow:
+        0 0 40px rgba(255, 102, 204, 0.4),
+        0 0 20px rgba(95, 195, 228, 0.3),
+        0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Tagline */
+.event-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    margin-bottom: var(--spacing-2xl);
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.6s forwards;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Decorative Elements */
+.hero-decoration {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.decoration-circle {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(0, 212, 255, 0.15) 0%,
+            transparent 70%);
+    filter: blur(60px);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.decoration-circle-1 {
+    top: -200px;
+    left: -200px;
+}
+
+.decoration-circle-2 {
+    bottom: -200px;
+    right: -200px;
+    animation-delay: 2s;
+}
+
+/* Fingerprint Logo */
+.fingerprint-icon {
+    display: inline-block;
+    width: clamp(160px, 25vw, 260px);
+    height: clamp(160px, 25vw, 260px);
+    margin: 0 auto;
+    position: relative;
+    opacity: 0;
+    animation: fadeInRotate 1.2s ease-out 0.8s forwards;
+    filter:
+        drop-shadow(0 0 50px rgba(255, 102, 204, 0.4)) drop-shadow(0 0 30px rgba(95, 195, 228, 0.3)) drop-shadow(0 10px 40px rgba(139, 26, 158, 0.3));
+}
+
+.fingerprint-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInRotate {
+    from {
+        opacity: 0;
+        transform: rotate(-180deg) scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.15;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.25;
+    }
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content {
+        padding: var(--spacing-lg);
+    }
+
+    .event-year {
+        font-size: 0.875rem;
+    }
+
+    .event-tagline {
+        font-size: 1rem;
+    }
+
+    .tagline-separator {
+        display: block;
+        margin: var(--spacing-xs) 0;
+    }
+
+    .fingerprint-icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .decoration-circle {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .event-title {
+        font-size: 2.5rem;
+    }
+
+    .event-tagline {
+        font-size: 0.875rem;
+    }
 }
