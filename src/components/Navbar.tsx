@@ -15,6 +15,9 @@ const Navbar: React.FC = () => {
                     <li className="navbar-item">
                         <a href="#agenda" className="navbar-link">Agenda</a>
                     </li>
+                    <li className="navbar-item">
+                        <a href="#speakers" className="navbar-link">Speakers</a>
+                    </li>
                 </ul>
             </div>
         </nav>

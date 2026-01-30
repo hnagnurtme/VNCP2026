@@ -35,7 +35,7 @@ const Agenda: React.FC = () => {
                                 </radialGradient>
                             </defs>
                             <path
-                                d="M 100 0 Q 150 150, 80 300 T 120 600 Q 90 700, 100 800"
+                                d="M 100 0 C 100 50, 140 100, 130 180 S 70 260, 85 350 S 130 440, 115 530 S 80 620, 90 700 S 105 750, 100 800"
                                 stroke="url(#pathGradient)"
                                 strokeWidth="3"
                                 fill="none"
@@ -44,9 +44,10 @@ const Agenda: React.FC = () => {
                             />
                             {/* Animated Particles */ }
                             <circle cx="100" cy="0" r="3" fill="url(#particleGradient)" className="particle particle-1" />
-                            <circle cx="100" cy="200" r="2" fill="url(#particleGradient)" className="particle particle-2" />
-                            <circle cx="100" cy="400" r="3" fill="url(#particleGradient)" className="particle particle-3" />
-                            <circle cx="100" cy="600" r="2" fill="url(#particleGradient)" className="particle particle-4" />
+                            <circle cx="130" cy="180" r="2.5" fill="url(#particleGradient)" className="particle particle-2" />
+                            <circle cx="85" cy="350" r="3" fill="url(#particleGradient)" className="particle particle-3" />
+                            <circle cx="115" cy="530" r="2.5" fill="url(#particleGradient)" className="particle particle-4" />
+                            <circle cx="90" cy="700" r="2" fill="url(#particleGradient)" className="particle particle-5" />
                         </svg>
 
                         {/* Timeline Items */ }
