@@ -6,18 +6,18 @@ import './Hero.css';
 const Hero: React.FC = () => {
     return (
         <div className="hero-section" id="home">
-            {/* Background Image */ }
+            {/* Background Image */}
             <div className="hero-background">
-                <img src={ backgroundImage } alt="Vietnam Creative Pulse 2026 Background" />
+                <img src={backgroundImage} alt="Vietnam Creative Pulse 2026 Background" />
             </div>
 
-            {/* Overlay */ }
+            {/* Overlay */}
             <div className="hero-overlay"></div>
 
-            {/* Decorative Pattern Layer */ }
+            {/* Decorative Pattern Layer */}
             <div className="hero-pattern"></div>
 
-            {/* Main Content */ }
+            {/* Main Content */}
             <div className="hero-content">
                 <div className="event-year">Vietnam Creative Pulse 2026</div>
 
@@ -30,8 +30,13 @@ const Hero: React.FC = () => {
                 </p>
 
                 <div className="fingerprint-icon">
-                    <img src={ fingerprintLogo } alt="Fingerprint Logo" />
+                    <img src={fingerprintLogo} alt="Fingerprint Logo" />
                 </div>
+
+                <a href="#contact" className="get-in-touch-box">
+                    <span className="get-in-touch-text">Get in Touch</span>
+                    <span className="get-in-touch-arrow">→</span>
+                </a>
             </div>
         </div>
     );

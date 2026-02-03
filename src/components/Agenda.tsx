@@ -46,7 +46,7 @@ const Agenda: React.FC = () => {
                                 <stop offset="100%" stopColor="#ffffff" stopOpacity="0.8" />
                             </linearGradient>
                         </defs>
-                        
+
                         {/* Main Road - Vertical with branches */}
                         <path
                             d="M 400 50 L 400 200 M 400 200 Q 350 250, 250 300 M 400 200 Q 450 250, 550 300 M 250 300 L 250 400 M 550 300 L 550 400 M 250 400 Q 300 450, 400 500 M 550 400 Q 500 450, 400 500 M 400 500 L 400 580"
@@ -56,7 +56,7 @@ const Agenda: React.FC = () => {
                             filter="url(#roadGlow)"
                             className="road-main"
                         />
-                        
+
                         {/* Road dashes */}
                         <path
                             d="M 400 50 L 400 200 M 400 200 Q 350 250, 250 300 M 400 200 Q 450 250, 550 300 M 250 300 L 250 400 M 550 300 L 550 400 M 250 400 Q 300 450, 400 500 M 550 400 Q 500 450, 400 500 M 400 500 L 400 580"
@@ -70,7 +70,7 @@ const Agenda: React.FC = () => {
 
                     {/* Timeline Items */}
                     <div className="timeline">
-                        <div className="timeline-item" data-stage="1" style={{top: '80px', left: '50%'}}>
+                        <div className="timeline-item" data-stage="1" style={{ top: '80px', left: '50%' }}>
                             <div className="timeline-marker"></div>
                             <div className="timeline-date-badge">15/3</div>
                             <div className="timeline-content">
@@ -80,7 +80,7 @@ const Agenda: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="timeline-item" data-stage="2" style={{top: '280px', left: '20%'}}>
+                        <div className="timeline-item" data-stage="2" style={{ top: '280px', left: '20%' }}>
                             <div className="timeline-marker"></div>
                             <div className="timeline-date-badge">16/3</div>
                             <div className="timeline-content">
@@ -90,7 +90,7 @@ const Agenda: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="timeline-item" data-stage="3" style={{top: '280px', left: '60%'}}>
+                        <div className="timeline-item" data-stage="3" style={{ top: '280px', left: '60%' }}>
                             <div className="timeline-marker"></div>
                             <div className="timeline-date-badge">17/3</div>
                             <div className="timeline-content">
@@ -101,7 +101,6 @@ const Agenda: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </section>
     );

@@ -64,7 +64,13 @@ const speakers: ISpeaker[] = [
 ];
 
 const Speaker: React.FC = () => {
-    const [ selectedSpeaker, setSelectedSpeaker ] = useState<ISpeaker>( speakers[ 0 ] );
+    const [selectedSpeaker, setSelectedSpeaker] = useState<ISpeaker>(speakers[0]);
+    const [showDetail, setShowDetail] = useState(false);
+
+    const handleSpeakerClick = (speaker: ISpeaker) => {
+        setSelectedSpeaker(speaker);
+        setShowDetail(true);
+    };
 
     return (
         <section id="speakers" className="speaker-section">
@@ -73,51 +79,60 @@ const Speaker: React.FC = () => {
                 <p className="speaker-intro">Gặp gỡ những diễn giả hàng đầu</p>
 
                 <div className="speaker-layout">
-                    {/* Left: Horizontal Scroll Cards (75%) */ }
+                    {/* Left: Horizontal Scroll Cards (75%) */}
                     <div className="speaker-gallery">
                         <div className="speaker-cards">
-                            { speakers.map( ( speaker ) => (
+                            {speakers.map((speaker) => (
                                 <div
-                                    key={ speaker.id }
-                                    className={ `speaker-card ${ selectedSpeaker.id === speaker.id ? 'active' : '' }` }
-                                    onClick={ () => setSelectedSpeaker( speaker ) }
+                                    key={speaker.id}
+                                    className={`speaker-card ${selectedSpeaker.id === speaker.id && showDetail ? 'active' : ''}`}
+                                    onClick={() => handleSpeakerClick(speaker)}
                                 >
                                     <div className="speaker-card-image">
-                                        <img src={ speaker.image } alt={ speaker.name } />
+                                        <img src={speaker.image} alt={speaker.name} />
                                         <div className="speaker-card-overlay"></div>
                                     </div>
                                     <div className="speaker-card-info">
-                                        <h3 className="speaker-card-name">{ speaker.name }</h3>
-                                        <p className="speaker-card-title">{ speaker.title }</p>
+                                        <h3 className="speaker-card-name">{speaker.name}</h3>
+                                        <p className="speaker-card-title">{speaker.title}</p>
                                     </div>
                                 </div>
-                            ) ) }
+                            ))}
                         </div>
                     </div>
 
-                    {/* Right: Detail Panel (25%) */ }
-                    <div className="speaker-detail">
-                        <div className="speaker-detail-card">
-                            <div className="speaker-detail-image">
-                                <img src={ selectedSpeaker.detailImage } alt={ selectedSpeaker.name } />
-                            </div>
-                            <div className="speaker-detail-content">
-                                <h3 className="speaker-detail-name">{ selectedSpeaker.name }</h3>
-                                <p className="speaker-detail-title">{ selectedSpeaker.title }</p>
-                                <p className="speaker-detail-bio">{ selectedSpeaker.bio }</p>
-                                { selectedSpeaker.social && (
-                                    <div className="speaker-detail-social">
-                                        { selectedSpeaker.social.linkedin && (
-                                            <a href={ selectedSpeaker.social.linkedin } className="social-link">LinkedIn</a>
-                                        ) }
-                                        { selectedSpeaker.social.twitter && (
-                                            <a href={ selectedSpeaker.social.twitter } className="social-link">Twitter</a>
-                                        ) }
-                                    </div>
-                                ) }
+                    {/* Right: Detail Panel (25%) - Conditional */}
+                    {showDetail && (
+                        <div className="speaker-detail">
+                            <div className="speaker-detail-card">
+                                <button
+                                    className="close-detail-btn"
+                                    onClick={() => setShowDetail(false)}
+                                    aria-label="Close detail panel"
+                                >
+                                    ✕
+                                </button>
+                                <div className="speaker-detail-image">
+                                    <img src={selectedSpeaker.detailImage} alt={selectedSpeaker.name} />
+                                </div>
+                                <div className="speaker-detail-content">
+                                    <h3 className="speaker-detail-name">{selectedSpeaker.name}</h3>
+                                    <p className="speaker-detail-title">{selectedSpeaker.title}</p>
+                                    <p className="speaker-detail-bio">{selectedSpeaker.bio}</p>
+                                    {selectedSpeaker.social && (
+                                        <div className="speaker-detail-social">
+                                            {selectedSpeaker.social.linkedin && (
+                                                <a href={selectedSpeaker.social.linkedin} className="social-link">LinkedIn</a>
+                                            )}
+                                            {selectedSpeaker.social.twitter && (
+                                                <a href={selectedSpeaker.social.twitter} className="social-link">Twitter</a>
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    )}
                 </div>
             </div>
         </section>

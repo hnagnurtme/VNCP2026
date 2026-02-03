@@ -58,118 +58,148 @@
     letter-spacing: 0.01em;
 }
 
-/* 2-Column Grid Layout - 60/40 Split */
-.agenda-grid {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    gap: 4rem;
-    margin-top: 3rem;
-    align-items: start;
+/* Description Section - Top */
+.description-section {
+    width: 100%;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center;
 }
 
-/* Left Column - Timeline */
-.timeline-column {
+.description-card {
+    max-width: 900px;
+    padding: 3rem 2.5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(30px) saturate(180%);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 28px;
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.4),
+        0 0 60px rgba(95, 195, 228, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
     position: relative;
+    overflow: hidden;
+}
+
+.description-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(95, 195, 228, 0.08) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+.description-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 3vw, 2.9rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffa347 0%, #ff66cc 50%, #5fc3e4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 0.01em;
+    position: relative;
+    z-index: 1;
+}
+
+.description-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+    font-weight: 400;
+    line-height: 2.3;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.highlight-text {
+    color: #5fc3e4;
+    font-weight: 600;
+}
+
+/* Timeline Section - Bottom */
+.timeline-section {
+    position: relative;
+    width: 100%;
     padding: 2rem 0;
 }
 
-/* Glowing Light Path */
-.light-path {
+.agenda-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 0.01em;
+}
+
+/* Branching Road SVG */
+.road-path {
     position: absolute;
     top: 80px;
     left: 50%;
     transform: translateX(-50%);
-    width: 250px;
-    height: calc(100% - 80px);
-    opacity: 0.8;
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    opacity: 0.9;
     z-index: 0;
     pointer-events: none;
-    filter: drop-shadow(0 0 20px rgba(95, 195, 228, 0.4));
 }
 
-.animated-path {
-    animation: pathFlow 8s ease-in-out infinite;
-    stroke-width: 4;
+.road-main {
+    animation: roadPulse 3s ease-in-out infinite;
 }
 
-@keyframes pathFlow {
-
-    0% {
-        stroke-dasharray: 1200;
-        stroke-dashoffset: 0;
-    }
-
-    50% {
-        stroke-dashoffset: -400;
-    }
-
-    100% {
-        stroke-dashoffset: -800;
-    }
+.road-dashes {
+    animation: dashFlow 20s linear infinite;
 }
 
-/* Particle Animations */
-.particle {
-    animation: particleFloat 4s ease-in-out infinite;
-}
-
-.particle-1 {
-    animation-delay: 0s;
-    animation-duration: 5s;
-}
-
-.particle-2 {
-    animation-delay: 1s;
-    animation-duration: 6s;
-}
-
-.particle-3 {
-    animation-delay: 2s;
-    animation-duration: 5.5s;
-}
-
-.particle-4 {
-    animation-delay: 1.5s;
-    animation-duration: 6.5s;
-}
-
-.particle-5 {
-    animation-delay: 0.8s;
-    animation-duration: 5.8s;
-}
-
-@keyframes particleFloat {
+@keyframes roadPulse {
 
     0%,
     100% {
-        opacity: 0.3;
-        transform: translateY(0) scale(1);
+        opacity: 0.8;
     }
 
     50% {
         opacity: 1;
-        transform: translateY(-20px) scale(1.5);
     }
 }
 
-/* Timeline - Date left, Card right */
+@keyframes dashFlow {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: -300;
+    }
+}
+
+/* Timeline Items - Positioned Absolutely */
 .timeline {
     position: relative;
+    width: 100%;
+    height: 600px;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    padding: 2rem 0;
-    min-height: 750px;
-    justify-content: space-evenly;
 }
 
 .timeline-item {
-    position: relative;
-    display: grid;
-    grid-template-columns: 120px 40px 1fr;
+    position: absolute;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 2.5rem;
+    gap: 1rem;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
 }
@@ -186,7 +216,7 @@
     animation-delay: 0.6s;
 }
 
-/* Timeline Marker - On path */
+/* Timeline Marker */
 .timeline-marker {
     width: 32px;
     height: 32px;
@@ -229,10 +259,10 @@
     animation: ripple 2.5s ease-in-out infinite;
 }
 
-/* Date Badge - LEFT of Path */
+/* Date Badge */
 .timeline-date-badge {
     font-family: 'Cinzel', serif;
-    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     font-weight: 700;
     color: #ffffff;
     padding: 0.7rem 1.2rem;
@@ -252,7 +282,6 @@
     position: relative;
     overflow: hidden;
     white-space: nowrap;
-    min-width: 100px;
 }
 
 .timeline-date-badge::before {
@@ -279,7 +308,7 @@
     left: 100%;
 }
 
-/* Timeline Content - RIGHT of Path */
+/* Timeline Content */
 .timeline-content {
     padding: 2rem 2.5rem;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
@@ -293,6 +322,8 @@
         inset 0 -1px 0 rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    min-width: 280px;
+    text-align: center;
 }
 
 .timeline-content::before {
@@ -324,7 +355,7 @@
 .timeline-content:hover {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
     border-color: rgba(95, 195, 228, 0.5);
-    transform: translateX(12px) translateY(-4px);
+    transform: translateY(-4px);
     box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.4),
         0 0 40px rgba(95, 195, 228, 0.3),
@@ -367,83 +398,6 @@
     font-weight: 400;
     font-style: italic;
     color: rgba(255, 255, 255, 0.6);
-}
-
-/* Right Column - Description */
-.description-column {
-    position: sticky;
-    top: 120px;
-}
-
-.description-card {
-    padding: 3rem 2.5rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    backdrop-filter: blur(30px) saturate(180%);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 28px;
-    box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.4),
-        0 0 60px rgba(95, 195, 228, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-    min-height: 450px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.description-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(95, 195, 228, 0.08) 0%, transparent 70%);
-    animation: rotate 20s linear infinite;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.description-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 3vw, 2.9rem);
-    font-weight: 700;
-    background: linear-gradient(135deg, #ffa347 0%, #ff66cc 50%, #5fc3e4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 2rem;
-    text-align: center;
-    letter-spacing: 0.01em;
-    position: relative;
-    z-index: 1;
-}
-
-.description-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.25rem, 2.5vw, 1.55rem);
-    font-weight: 400;
-    line-height: 2.3;
-    color: rgba(255, 255, 255, 0.95);
-    text-align: center;
-    position: relative;
-    z-index: 1;
-}
-
-.highlight-text {
-    color: #5fc3e4;
-    font-weight: 600;
 }
 
 @keyframes fadeInUp {
