@@ -7,7 +7,7 @@ import Speaker from './components/Speaker';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-function App () {
+function App() {
     return (
         <>
             <Navbar />

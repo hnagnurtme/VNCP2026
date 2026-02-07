@@ -1,5 +1,5 @@
 import React from 'react';
-import backgroundImage from '../assets/BACKGROUND.png';
+import backgroundImage from '../assets/background 2.png';
 import fingerprintLogo from '../assets/fingerprint.png';
 import './Hero.css';
 

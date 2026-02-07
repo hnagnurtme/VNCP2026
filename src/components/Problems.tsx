@@ -12,14 +12,13 @@ const Problems: React.FC = () => {
                 <div className="problems-content">
                     <p className="problems-text">
                         Giữa kỷ nguyên số nơi các giá trị văn hóa giao thoa mạnh mẽ, hành trình tìm kiếm bản sắc cá nhân
-                        bỗng trở nên đầy rẫy những ngõ rẽ. Thấu hiểu sự "loay hoay" đó,
-                        Vietnam Creative Pulse 2026: Dấu Chạm Văn Hóa ra đời để cùng bạn định vị bản thân giữa dòng chảy sáng tạo vô tận.
+                        bỗng trở nên đầy rẫy những ngã rẽ. Thấu hiểu sự "loay hoay" đó, <span className="highlight-gradient">Vietnam Creative Pulse 2026: Dấu Chạm Văn Hóa</span> ra đời để cùng bạn định vị bản thân giữa dòng chảy sáng tạo vô tận.
                     </p>
 
                     <p className="problems-text">
-                        Không chỉ là một sự kiện, đây là không gian của những trải nghiệm đa giác quan - nơi mỗi lời đi bạn
+                        Không chỉ là một sự kiện, đây là không gian của những trải nghiệm đa giác quan - nơi mỗi lối đi bạn
                         chọn đều mở ra một cánh cửa tương lai riêng biệt. Hãy để nhịp đập
-                        của văn hóa, sức mạnh của sáng tạo và hơi thở của công nghệ trở thành chất liệu giúp bạn định danh bản sắc và khắc họa dấu ấn độc bản của chính mình.
+                        của văn hóa, sức mạnh của sáng tạo và hơi thở của công nghệ trở thành chất liệu giúp bạn <span className="highlight-gradient">định danh bản sắc</span> và <span className="highlight-gradient">khắc họa dấu ấn độc bản</span> của chính mình.
                     </p>
                 </div>
             </div>

@@ -102,7 +102,7 @@
 
 /* Main Title */
 .event-title {
-    font-family: var(--font-heading);
+    font-family: 'BD StreetSign Sans', sans-serif;
     font-size: clamp(2.5rem, 10vw, 6rem);
     font-weight: 700;
     line-height: 1;
