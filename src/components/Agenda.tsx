@@ -67,8 +67,6 @@ const Agenda: React.FC = () => {
                             className="road-dashes"
                         />
                     </svg>
-
-                    {/* Timeline Items */}
                     <div className="timeline">
                         <div className="timeline-item" data-stage="1" style={{ top: '80px', left: '50%' }}>
                             <div className="timeline-marker"></div>
