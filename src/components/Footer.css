@@ -53,9 +53,9 @@
 }
 
 .footer-slogan {
-    font-family: 'Cinzel', serif;
+    font-family: 'Paris2024-SemiBold', 'Cinzel', serif;
     font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-    font-weight: 700;
+    font-weight: 600;
     color: #ffa347;
     margin: 0.5rem 0 0 0;
     letter-spacing: 0.1em;
@@ -167,6 +167,7 @@
 .copyright {
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
+    font-weight: 400;
     color: rgba(255, 255, 255, 0.5);
     margin: 0;
 }
@@ -180,6 +181,7 @@
 .footer-link {
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
+    font-weight: 400;
     color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
     transition: color 0.3s ease;

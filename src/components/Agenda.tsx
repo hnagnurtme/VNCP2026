@@ -19,82 +19,105 @@ const Agenda: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Bottom - Timeline with Intro */}
-                <div className="timeline-section">
-                    <p className="agenda-intro">
-                        Thông qua 3 tầng "Chạm":
-                    </p>
+                {/* Vertical Timeline */}
+                <div className="timeline-vertical">
+                    <div className="timeline-line"></div>
 
-                    {/* Branching Road Path */}
-                    <svg className="road-path" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
-                        <defs>
-                            <linearGradient id="roadGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stopColor="#5fc3e4" stopOpacity="0.6" />
-                                <stop offset="50%" stopColor="#ff66cc" stopOpacity="0.6" />
-                                <stop offset="100%" stopColor="#ffa347" stopOpacity="0.6" />
-                            </linearGradient>
-                            <filter id="roadGlow">
-                                <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-                                <feMerge>
-                                    <feMergeNode in="coloredBlur" />
-                                    <feMergeNode in="SourceGraphic" />
-                                </feMerge>
-                            </filter>
-                            <linearGradient id="dashGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
-                                <stop offset="50%" stopColor="#5fc3e4" stopOpacity="0.9" />
-                                <stop offset="100%" stopColor="#ffffff" stopOpacity="0.8" />
-                            </linearGradient>
-                        </defs>
+                    {/* Floor 1 - Tech Touch */}
+                    <div className="floor-section">
+                        <div className="event-row">
+                            <div className="event-description left">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div className="event-time-marker">
+                                <div className="timeline-dot"></div>
+                                <div className="event-time">XX/II</div>
+                            </div>
+                            <div className="event-spacer"></div>
+                        </div>
 
-                        {/* Main Road - Vertical with branches */}
-                        <path
-                            d="M 400 50 L 400 200 M 400 200 Q 350 250, 250 300 M 400 200 Q 450 250, 550 300 M 250 300 L 250 400 M 550 300 L 550 400 M 250 400 Q 300 450, 400 500 M 550 400 Q 500 450, 400 500 M 400 500 L 400 580"
-                            stroke="url(#roadGradient)"
-                            strokeWidth="20"
-                            fill="none"
-                            filter="url(#roadGlow)"
-                            className="road-main"
-                        />
-
-                        {/* Road dashes */}
-                        <path
-                            d="M 400 50 L 400 200 M 400 200 Q 350 250, 250 300 M 400 200 Q 450 250, 550 300 M 250 300 L 250 400 M 550 300 L 550 400 M 250 400 Q 300 450, 400 500 M 550 400 Q 500 450, 400 500 M 400 500 L 400 580"
-                            stroke="url(#dashGradient)"
-                            strokeWidth="3"
-                            strokeDasharray="15 15"
-                            fill="none"
-                            className="road-dashes"
-                        />
-                    </svg>
-                    <div className="timeline">
-                        <div className="timeline-item" data-stage="1" style={{ top: '80px', left: '50%' }}>
-                            <div className="timeline-marker"></div>
-                            <div className="timeline-date-badge">15/3</div>
-                            <div className="timeline-content">
-                                <h3 className="timeline-title">Tầng 1</h3>
-                                <p className="timeline-subtitle">Chạm Công Nghệ</p>
-                                <p className="timeline-subtitle-en">Tech Touch</p>
+                        <div className="floor-card-wrapper">
+                            <div className="timeline-dot main"></div>
+                            <div className="floor-card">
+                                <h3 className="floor-number">TẦNG 1</h3>
+                                <p className="floor-title">CHẠM CÔNG NGHỆ - TECH TOUCH</p>
                             </div>
                         </div>
 
-                        <div className="timeline-item" data-stage="2" style={{ top: '280px', left: '20%' }}>
-                            <div className="timeline-marker"></div>
-                            <div className="timeline-date-badge">16/3</div>
-                            <div className="timeline-content">
-                                <h3 className="timeline-title">Tầng 2</h3>
-                                <p className="timeline-subtitle">Chạm Bản Sắc</p>
-                                <p className="timeline-subtitle-en">Identity Touch</p>
+                        <div className="event-row">
+                            <div className="event-spacer"></div>
+                            <div className="event-time-marker">
+                                <div className="timeline-dot"></div>
+                                <div className="event-time">XX/II</div>
+                            </div>
+                            <div className="event-description right">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Floor 2 - Identity Touch */}
+                    <div className="floor-section">
+                        <div className="event-row">
+                            <div className="event-description left">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div className="event-time-marker">
+                                <div className="timeline-dot"></div>
+                                <div className="event-time">XX/II</div>
+                            </div>
+                            <div className="event-spacer"></div>
+                        </div>
+
+                        <div className="floor-card-wrapper">
+                            <div className="timeline-dot main"></div>
+                            <div className="floor-card">
+                                <h3 className="floor-number">TẦNG 2</h3>
+                                <p className="floor-title">CHẠM BẢN SẮC - IDENTITY TOUCH</p>
                             </div>
                         </div>
 
-                        <div className="timeline-item" data-stage="3" style={{ top: '280px', left: '60%' }}>
-                            <div className="timeline-marker"></div>
-                            <div className="timeline-date-badge">17/3</div>
-                            <div className="timeline-content">
-                                <h3 className="timeline-title">Tầng 3</h3>
-                                <p className="timeline-subtitle">Chạm Tương Lai</p>
-                                <p className="timeline-subtitle-en">Future Touch</p>
+                        <div className="event-row">
+                            <div className="event-spacer"></div>
+                            <div className="event-time-marker">
+                                <div className="timeline-dot"></div>
+                                <div className="event-time">XX/II</div>
+                            </div>
+                            <div className="event-description right">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Floor 3 - Future Touch */}
+                    <div className="floor-section">
+                        <div className="event-row">
+                            <div className="event-description left">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div className="event-time-marker">
+                                <div className="timeline-dot"></div>
+                                <div className="event-time">XX/II</div>
+                            </div>
+                            <div className="event-spacer"></div>
+                        </div>
+
+                        <div className="floor-card-wrapper">
+                            <div className="timeline-dot main"></div>
+                            <div className="floor-card">
+                                <h3 className="floor-number">TẦNG 3</h3>
+                                <p className="floor-title">CHẠM TƯƠNG LAI - FUTURE TOUCH</p>
+                            </div>
+                        </div>
+
+                        <div className="event-row">
+                            <div className="event-spacer"></div>
+                            <div className="event-time-marker">
+                                <div className="timeline-dot"></div>
+                                <div className="event-time">XX/II</div>
+                            </div>
+                            <div className="event-description right">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
                     </div>

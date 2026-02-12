@@ -19,7 +19,7 @@ interface ISpeaker {
 const speakers: ISpeaker[] = [
     {
         id: 1,
-        name: 'Nguyễn Văn A',
+        name: 'Phương Vũ',
         title: 'Tech Innovation Leader',
         image: speaker1,
         detailImage: speaker1Detail,
