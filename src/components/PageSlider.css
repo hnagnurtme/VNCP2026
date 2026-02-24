@@ -1,0 +1,42 @@
+/* ─── Viewport: locks full screen, clips overflow ─── */
+.page-slider__viewport {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* ─── Track: 3 pages side by side ─── */
+.page-slider__track {
+    display: flex;
+    width: 300vw;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+/* ─── Each page ─── */
+.page-slide {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Gallery page — dark blue/indigo */
+.page-slide--gallery {
+    background: linear-gradient(135deg, #0a0a1a 0%, #0d1b3e 50%, #0a0a1a 100%);
+}
+
+/* Main page — transparent (inherits website background) */
+.page-slide--main {
+    background: transparent;
+}
+
+/* FAQs page — dark purple */
+.page-slide--faqs {
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a0a1a 100%);
+}

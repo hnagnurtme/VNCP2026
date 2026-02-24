@@ -11,7 +11,7 @@ interface ContactForm {
 interface FormErrors {
     name?: string;
     email?: string;
-    message?: string;
+    phone?: string;
 }
 
 const Contact: React.FC = () => {
@@ -44,8 +44,8 @@ const Contact: React.FC = () => {
             newErrors.email = 'Email không hợp lệ';
         }
 
-        if (!formData.message.trim()) {
-            newErrors.message = 'Vui lòng nhập tin nhắn';
+        if (!formData.phone.trim()) {
+            newErrors.phone = 'Vui lòng nhập số điện thoại';
         }
 
         setErrors(newErrors);
@@ -141,30 +141,30 @@ const Contact: React.FC = () => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="phone" className="form-label">Số điện thoại</label>
+                            <label htmlFor="phone" className="form-label">Số điện thoại *</label>
                             <input
                                 type="tel"
                                 id="phone"
                                 name="phone"
                                 value={formData.phone}
                                 onChange={handleChange}
-                                className="form-input"
+                                className={`form-input ${errors.phone ? 'error' : ''}`}
                                 placeholder=" "
                             />
+                            {errors.phone && <span className="error-message">{errors.phone}</span>}
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="message" className="form-label">Tin nhắn *</label>
+                            <label htmlFor="message" className="form-label">Lời nhắn gửi</label>
                             <textarea
                                 id="message"
                                 name="message"
                                 value={formData.message}
                                 onChange={handleChange}
-                                className={`form-input form-textarea ${errors.message ? 'error' : ''}`}
+                                className="form-input form-textarea"
                                 placeholder=" "
                                 rows={5}
                             />
-                            {errors.message && <span className="error-message">{errors.message}</span>}
                         </div>
 
                         <button

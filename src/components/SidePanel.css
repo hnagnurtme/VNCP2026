@@ -1,0 +1,175 @@
+/* ─── Floating Tab Buttons ─── */
+.side-tab {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 900;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 120px;
+    border: none;
+    cursor: pointer;
+    border-radius: 0;
+    transition: width 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.side-tab--left {
+    left: 0;
+    border-radius: 0 12px 12px 0;
+    border-left: none;
+    border-image: linear-gradient(180deg, #5FC3E4, #FF66CC) 1;
+    border-image-slice: 0 1 0 0;
+    box-shadow: 4px 0 24px rgba(95, 195, 228, 0.2);
+}
+
+.side-tab--right {
+    right: 0;
+    border-radius: 12px 0 0 12px;
+    border-right: none;
+    border-image: linear-gradient(180deg, #FF66CC, #5FC3E4) 1;
+    border-image-slice: 0 0 0 1;
+    box-shadow: -4px 0 24px rgba(255, 102, 204, 0.2);
+}
+
+.side-tab:hover {
+    width: 52px;
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.side-tab__text {
+    font-family: var(--font-heading, 'Inter', sans-serif);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    pointer-events: none;
+}
+
+/* Tab text direction */
+.side-tab--left .side-tab__text {
+    transform: rotate(180deg);
+}
+
+/* ─── Backdrop ─── */
+.side-panel__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ─── Sliding Panel ─── */
+.side-panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: min(480px, 88vw);
+    z-index: 1000;
+    overflow-y: auto;
+    background: rgba(10, 10, 20, 0.85);
+    backdrop-filter: blur(32px) saturate(160%);
+    -webkit-backdrop-filter: blur(32px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 3rem 2rem 2rem;
+    box-sizing: border-box;
+}
+
+.side-panel--left {
+    left: 0;
+    transform: translateX(-100%);
+    border-left: none;
+    border-radius: 0 24px 24px 0;
+    box-shadow: 8px 0 40px rgba(95, 195, 228, 0.25);
+    border-image: linear-gradient(180deg, #5FC3E4, #FF66CC) 1;
+    border-image-slice: 0 1 1 0;
+}
+
+.side-panel--right {
+    right: 0;
+    transform: translateX(100%);
+    border-right: none;
+    border-radius: 24px 0 0 24px;
+    box-shadow: -8px 0 40px rgba(255, 102, 204, 0.25);
+    border-image: linear-gradient(180deg, #FF66CC, #5FC3E4) 1;
+    border-image-slice: 0 0 1 1;
+}
+
+.side-panel--left.side-panel--open {
+    transform: translateX(0);
+}
+
+.side-panel--right.side-panel--open {
+    transform: translateX(0);
+}
+
+/* ─── Close Button ─── */
+.side-panel__close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.side-panel__close:hover {
+    background: rgba(255, 102, 204, 0.3);
+    border-color: rgba(255, 102, 204, 0.5);
+    color: #fff;
+}
+
+/* ─── Content ─── */
+.side-panel__content {
+    color: #fff;
+}
+
+.side-panel__title {
+    font-family: var(--font-heading, 'Inter', sans-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #5FC3E4, #FF66CC);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.side-panel__subtitle {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}

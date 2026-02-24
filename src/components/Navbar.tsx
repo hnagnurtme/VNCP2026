@@ -2,17 +2,23 @@ import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
 const NAV_ITEMS = [
-    { label: 'Home', href: '#home', id: 'home' },
-    { label: 'Problems', href: '#problems', id: 'problems' },
-    { label: 'Agenda', href: '#agenda', id: 'agenda' },
-    { label: 'Speakers', href: '#speakers', id: 'speakers' },
-    { label: 'Contact', href: '#contact', id: 'contact' },
+    { label: 'VCP 2026', id: 'home' },
+    { label: 'Problems', id: 'problems' },
+    { label: 'Agenda', id: 'agenda' },
+    { label: 'Speakers', id: 'speakers' },
+    { label: 'Get in Touch', id: 'contact' },
 ];
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+    currentPage: 'gallery' | 'main' | 'faqs';
+    onNavigate: (page: 'gallery' | 'main' | 'faqs') => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
     const [activeSection, setActiveSection] = useState<string | null>(null);
 
     useEffect(() => {
+        if (currentPage !== 'main') return;
         const observers: IntersectionObserver[] = [];
 
         NAV_ITEMS.forEach(({ id }) => {
@@ -21,50 +27,65 @@ const Navbar: React.FC = () => {
 
             const observer = new IntersectionObserver(
                 ([entry]) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(id);
-                    }
+                    if (entry.isIntersecting) setActiveSection(id);
                 },
-                { threshold: 0.3 }
+                { threshold: 0, rootMargin: '-20% 0px -60% 0px' }
             );
-
             observer.observe(section);
             observers.push(observer);
         });
 
         return () => observers.forEach(o => o.disconnect());
-    }, []);
+    }, [currentPage]);
 
-    const handleClick = (id: string) => {
-        setActiveSection(id);
-        const section = document.getElementById(id);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+    const handleNavClick = (id: string) => {
+        if (currentPage !== 'main') {
+            onNavigate('main');
+            setTimeout(() => {
+                const section = document.getElementById(id);
+                if (section) section.scrollIntoView({ behavior: 'smooth' });
+            }, 420);
+        } else {
+            setActiveSection(id);
+            const section = document.getElementById(id);
+            if (section) section.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
     return (
         <nav className="navbar">
-            <div className="navbar-container">
-                <ul className="navbar-menu">
-                    {NAV_ITEMS.map(({ label, href, id }) => {
-                        const isActive = activeSection === id;
-                        return (
+            <div className="navbar-full-row">
+                {/* Gallery pill — LEFT */}
+                <button
+                    className={`navbar-page-btn navbar-page-btn--left${currentPage === 'gallery' ? ' navbar-page-btn--active' : ''}`}
+                    onClick={() => onNavigate(currentPage === 'gallery' ? 'main' : 'gallery')}
+                >
+                    Gallery
+                </button>
+
+                {/* Main nav pill */}
+                <div className="navbar-container">
+                    <ul className="navbar-menu">
+                        {NAV_ITEMS.map(({ label, id }) => (
                             <li className="navbar-item" key={id}>
-                                <a
-                                    href={href}
-                                    className={`navbar-link${isActive ? ' active' : ''}`}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        handleClick(id);
-                                    }}
+                                <button
+                                    className={`navbar-link${activeSection === id && currentPage === 'main' ? ' active' : ''}`}
+                                    onClick={() => handleNavClick(id)}
                                 >
                                     {label}
-                                </a>
+                                </button>
                             </li>
-                        );
-                    })}
-                </ul>
+                        ))}
+                    </ul>
+                </div>
+
+                {/* FAQs pill — RIGHT */}
+                <button
+                    className={`navbar-page-btn navbar-page-btn--right${currentPage === 'faqs' ? ' navbar-page-btn--active' : ''}`}
+                    onClick={() => onNavigate(currentPage === 'faqs' ? 'main' : 'faqs')}
+                >
+                    FAQs
+                </button>
             </div>
         </nav>
     );
