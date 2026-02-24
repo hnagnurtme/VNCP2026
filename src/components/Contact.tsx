@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
 
     const [errors, setErrors] = useState<FormErrors>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isSuccess, setIsSuccess] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const validateEmail = (email: string): boolean => {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -58,7 +58,6 @@ const Contact: React.FC = () => {
             ...prev,
             [name]: value
         }));
-        // Clear error when user starts typing
         if (errors[name as keyof FormErrors]) {
             setErrors(prev => ({
                 ...prev,
@@ -76,22 +75,20 @@ const Contact: React.FC = () => {
 
         setIsSubmitting(true);
 
-        // Simulate API call
         setTimeout(() => {
             setIsSubmitting(false);
-            setIsSuccess(true);
+            setShowModal(true);
             setFormData({
                 name: '',
                 email: '',
                 phone: '',
                 message: ''
             });
-
-            // Reset success message after 5 seconds
-            setTimeout(() => {
-                setIsSuccess(false);
-            }, 5000);
         }, 1500);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
     };
 
     return (
@@ -105,13 +102,6 @@ const Contact: React.FC = () => {
 
                 <div className="contact-form-wrapper">
                     <form className="contact-form" onSubmit={handleSubmit}>
-                        {isSuccess && (
-                            <div className="success-message">
-                                <div className="success-icon">✓</div>
-                                <p>Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất.</p>
-                            </div>
-                        )}
-
                         <div className="form-group">
                             <label htmlFor="name" className="form-label">Họ và tên *</label>
                             <input
@@ -155,7 +145,7 @@ const Contact: React.FC = () => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="message" className="form-label">Lời nhắn gửi</label>
+                            <label htmlFor="message" className="form-label">Lời nhắn</label>
                             <textarea
                                 id="message"
                                 name="message"
@@ -184,6 +174,52 @@ const Contact: React.FC = () => {
                     </form>
                 </div>
             </div>
+
+            {/* Thank You Modal */}
+            {showModal && (
+                <div className="thankyou-overlay" onClick={closeModal}>
+                    <div className="thankyou-modal" onClick={e => e.stopPropagation()}>
+                        <div className="thankyou-glow"></div>
+
+                        <div className="thankyou-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#heartGrad)" />
+                                <defs>
+                                    <linearGradient id="heartGrad" x1="2" y1="3" x2="22" y2="21" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stopColor="#38bdf8" />
+                                        <stop offset="50%" stopColor="#c084fc" />
+                                        <stop offset="100%" stopColor="#fbbf24" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+
+                        <h2 className="thankyou-title">Cảm ơn bạn!</h2>
+
+                        <p className="thankyou-message">
+                            Chúng tôi đã nhận được thông tin của bạn<br />
+                            Cảm ơn vì đã quan tâm và đồng hành cùng<br />
+                            <strong>Vietnam Creative Pulse 2026</strong>
+                        </p>
+
+                        <p className="thankyou-sub">
+                            Hẹn gặp lại bạn tại sự kiện<br />
+                            <span>23/11/2026 – 29/11/2026 · The Global City, TP.HCM</span>
+                        </p>
+
+                        <div className="thankyou-cta-box">
+                            <span className="thankyou-cta-icon">🪪</span>
+                            <p className="thankyou-cta-text">
+                                Tham gia <strong style={{ textDecoration: 'underline' }}>Person Branding Test</strong> để định danh bản sắc và nhận <strong>Touch ID độc bản</strong>
+                            </p>
+                        </div>
+
+                        <button className="thankyou-close" onClick={closeModal}>
+                            Đóng
+                        </button>
+                    </div>
+                </div>
+            )}
         </section>
     );
 };

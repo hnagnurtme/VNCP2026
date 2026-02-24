@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
                 </div>
 
                 <p className="event-tagline">
-                    Chạm đến không gian sáng tạo của riêng bạn
+                    Khai lối mê cung - Khởi chạm bản sắc
                 </p>
 
                 <div className="fingerprint-icon">

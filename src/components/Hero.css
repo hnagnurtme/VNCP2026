@@ -105,7 +105,7 @@
 /* Main Title */
 .event-title {
     margin: 0;
-    margin-top: -3px;
+    margin-top: -8px;
     margin-bottom: 2.5rem;
     opacity: 0;
     animation: fadeInScale 1s ease-out 0.4s forwards;
@@ -121,7 +121,7 @@
 /* Tagline */
 .event-tagline {
     font-family: '1FTVVIP-NeueHaasGrotesk', 'Inter', sans-serif;
-    font-size: clamp(1rem, 2.2vw, 1.35rem);
+    font-size: clamp(1.14rem, 2.51vw, 1.54rem);
     font-weight: 400;
     font-style: italic;
     letter-spacing: 0.03em;
