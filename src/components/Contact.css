@@ -42,8 +42,8 @@
 }
 
 .contact-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 3rem;
+    font-family: '1FTVVIP-SoyuzGrotesk', sans-serif;
+    font-size: clamp(2.7rem, 6.3vw, 4.95rem);
     font-weight: 700;
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;

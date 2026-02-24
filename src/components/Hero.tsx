@@ -1,6 +1,7 @@
 import React from 'react';
 import backgroundImage from '../assets/background 2.png';
 import fingerprintLogo from '../assets/fingerprint.png';
+import typefaceImg from '../assets/typeface.png';
 import './Hero.css';
 
 const Hero: React.FC = () => {
@@ -21,9 +22,9 @@ const Hero: React.FC = () => {
             <div className="hero-content">
                 <div className="event-year">Vietnam Creative Pulse 2026</div>
 
-                <h1 className="event-title">
-                    DẤU CHẠM VĂN HÓA
-                </h1>
+                <div className="event-title">
+                    <img src={typefaceImg} alt="Dấu Chạm Văn Hóa" className="event-title-img" />
+                </div>
 
                 <p className="event-tagline">
                     Chạm đến không gian sáng tạo của riêng bạn

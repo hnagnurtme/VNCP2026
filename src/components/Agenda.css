@@ -34,7 +34,7 @@
 }
 
 .agenda-title {
-    font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+    font-family: '1FTVVIP-SoyuzGrotesk', serif;
     font-size: clamp(3rem, 6vw, 4.5rem);
     font-weight: 700;
     text-align: center;
@@ -83,8 +83,8 @@
 }
 
 .description-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 3vw, 2.9rem);
+    font-family: '1FTVVIP-SoyuzGrotesk', sans-serif;
+    font-size: clamp(2.64rem, 3.6vw, 3.48rem);
     font-weight: 700;
     background: linear-gradient(135deg, #ffa347 0%, #ff66cc 50%, #5fc3e4 100%);
     -webkit-background-clip: text;
@@ -98,8 +98,8 @@
 }
 
 .description-text {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-family: '1FTVVIP-NeueHaasGrotesk', sans-serif;
+    font-size: clamp(1.21rem, 2.42vw, 1.51rem);
     font-weight: 400;
     line-height: 2.3;
     color: rgba(255, 255, 255, 0.95);
@@ -109,8 +109,13 @@
 }
 
 .highlight-text {
-    color: #5fc3e4;
     font-weight: 600;
+    background: linear-gradient(90deg, #38bdf8 0%, #c084fc 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientFlow 6s ease-in-out infinite;
 }
 
 /* Vertical Timeline */
@@ -174,31 +179,49 @@
 
 /* Floor Card */
 .floor-card {
-    background: linear-gradient(135deg, #6b9ac4 0%, #4a7ba7 50%, #3d6a99 100%);
-    padding: 2rem 3.5rem;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow:
-        0 15px 50px rgba(0, 0, 0, 0.5),
-        0 0 40px rgba(95, 195, 228, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    min-width: 350px;
     position: relative;
+    min-width: 323px;
+    padding: 2px;
+    border-radius: 26px;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.05);
 }
 
+/* The rotating gradient border */
 .floor-card::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.4s;
+    background: conic-gradient(from 0deg,
+            transparent 0%,
+            #5fc3e4 25%,
+            transparent 50%,
+            #e966f0 75%,
+            transparent 100%);
+    animation: borderRotate 4s linear infinite;
+    z-index: 0;
+}
+
+.floor-card-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(20, 25, 55, 0.95) 0%, rgba(10, 14, 39, 0.98) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    padding: 1.71rem 3.14rem;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(95, 195, 228, 0.1),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 .floor-card:hover {
@@ -214,21 +237,26 @@
 }
 
 .floor-number {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    font-family: '1FTVVIP-SoyuzGrotesk', sans-serif;
+    font-size: clamp(2.3rem, 4.02vw, 2.87rem);
     font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #5fc3e4 0%, #e966f0 50%, #5fc3e4 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.6rem;
     letter-spacing: 0.05em;
-    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+    animation: gradientFlow 5s linear infinite;
 }
 
 .floor-title {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(0.95rem, 1.5vw, 1.15rem);
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.95);
-    letter-spacing: 0.08em;
+    font-family: '1FTVVIP-SoyuzGrotesk', sans-serif;
+    font-size: clamp(1.15rem, 2.07vw, 1.43rem);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 
@@ -263,69 +291,165 @@
 /* Event Row */
 .event-row {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 3rem;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
     margin: 2.5rem 0;
     position: relative;
 }
 
+/* Event Half (left / right) */
+.event-half {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.event-half.left {
+    justify-content: flex-end;
+    /* push content toward center line */
+    padding-right: 2.5rem;
+    text-align: right;
+}
+
+.event-half.right {
+    justify-content: flex-start;
+    /* push content toward center line */
+    padding-left: 2.5rem;
+    text-align: left;
+}
+
+.event-half.empty {
+    pointer-events: none;
+}
+
+/* Connector: originates FROM center line → extends toward day/date text */
+.event-half.left:not(.empty)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 53%;
+    transform: translateY(-50%);
+    width: 9.2rem;
+    height: 2px;
+    background: linear-gradient(to left, rgba(95, 195, 228, 0.7), rgba(95, 195, 228, 0.15));
+    pointer-events: none;
+}
+
+.event-half.right:not(.empty)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 53%;
+    transform: translateY(-50%);
+    width: 9.2rem;
+    height: 2px;
+    background: linear-gradient(to right, rgba(95, 195, 228, 0.7), rgba(95, 195, 228, 0.15));
+    pointer-events: none;
+}
+
+/* Day-specific connector fine-tuning */
+.event-row.day-1 .event-half::after,
+.event-row.day-1 .event-half::before,
+.event-row.day-2 .event-half::after,
+.event-row.day-2 .event-half::before,
+.event-row.day-5 .event-half::after,
+.event-row.day-5 .event-half::before {
+    top: 52%;
+}
+
+.event-row.day-6 .event-half::after,
+.event-row.day-6 .event-half::before {
+    top: 51%;
+}
+
 /* Event Time Marker */
 .event-time-marker {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
+    gap: 1.4rem;
+    min-width: 80px;
+    flex-shrink: 0;
+}
+
+.event-day {
+    font-family: 'TeX Gyre Bonum', serif;
+    font-size: clamp(1.66rem, 2.6vw, 2.29rem);
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height: 1;
 }
 
 .event-time {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    font-family: 'TeX Gyre Bonum', serif;
+    font-size: clamp(1.27rem, 1.96vw, 1.73rem);
     font-weight: 700;
-    color: #ffffff;
-    text-shadow: 0 2px 15px rgba(95, 195, 228, 0.6);
+    color: rgba(255, 255, 255, 0.8);
     white-space: nowrap;
+    line-height: 1.2;
+}
+
+/* Align day marker text based on which side it's on */
+.event-half.left .event-time-marker {
+    align-items: flex-end;
+    text-align: right;
+    position: relative;
+}
+
+.event-half.right .event-time-marker {
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
 }
 
 /* Event Description */
 .event-description {
-    padding: 1.5rem 2rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
-    backdrop-filter: blur(20px);
-    border: 1.5px solid rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
-    box-shadow:
-        0 10px 40px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    flex: 1;
 }
 
-.event-description:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
-    border-color: rgba(95, 195, 228, 0.4);
-    transform: translateY(-3px);
-    box-shadow:
-        0 15px 50px rgba(0, 0, 0, 0.4),
-        0 0 30px rgba(95, 195, 228, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-.event-description p {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-    font-weight: 400;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.85);
+.event-description ul {
+    list-style: none;
+    padding: 0;
     margin: 0;
+    width: 100%;
 }
 
-.event-description.left {
+.event-half.left .event-description ul {
     text-align: right;
 }
 
-.event-description.right {
+.event-half.right .event-description ul {
     text-align: left;
+}
+
+.event-description ul li {
+    font-family: '1FTVVIP-NeueHaasGrotesk', sans-serif;
+    font-size: clamp(1.02rem, 1.62vw, 1.16rem);
+    font-weight: 400;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.85);
+    white-space: pre-line;
+    margin-bottom: 0.5rem;
+}
+
+.event-description ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Bullet dot cyan cho tất cả li (dùng ::before) */
+.event-description ul li::before {
+    content: '\2022  ';
+    color: rgba(95, 195, 228, 0.8);
+    font-size: inherit;
 }
 
 
@@ -357,6 +481,30 @@
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes borderRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
     }
 }
 
@@ -395,12 +543,21 @@
         text-align: center;
     }
 
-    .event-description.left,
-    .event-description.right {
+    .event-half.left,
+    .event-half.right {
+        justify-content: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .event-half.left .event-description ul,
+    .event-half.right .event-description ul {
         text-align: center;
     }
 
-    .event-spacer {
+    .event-half.empty {
         display: none;
     }
 
@@ -421,10 +578,6 @@
 @media (max-width: 480px) {
     .floor-card {
         min-width: 240px;
-        padding: 1.25rem 1.5rem;
-    }
-
-    .event-description {
         padding: 1.25rem 1.5rem;
     }
 }

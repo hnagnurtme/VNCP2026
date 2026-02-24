@@ -9,6 +9,20 @@
 }
 
 @font-face {
+    font-family: 'TeX Gyre Bonum';
+    src: url('./assets/fonts/texgyrebonum-bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TeX Gyre Bonum';
+    src: url('./assets/fonts/texgyrebonum-bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: '1FTV-Coolvetica-Condensed';
     src: url('./assets/fonts/1FTV-Coolvetica-Condensed-Rg.otf') format('opentype');
     font-weight: normal;
@@ -25,6 +39,20 @@
 @font-face {
     font-family: 'Paris2024-Bold';
     src: url('./assets/fonts/Paris2024-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '1FTVVIP-NeueHaasGrotesk';
+    src: url('./assets/fonts/1FTVVIPNeueHaasGrotesk-Reg.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '1FTVVIP-SoyuzGrotesk';
+    src: url('./assets/fonts/1FTV-VIP-Soyuz-Grotesk.bold_.otf') format('opentype');
     font-weight: 700;
     font-style: normal;
 }
