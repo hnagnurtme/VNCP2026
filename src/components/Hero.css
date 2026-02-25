@@ -1,7 +1,6 @@
-/* Hero Section */
 .hero-section {
     position: relative;
-    min-height: 100vh;
+    min-height: 110vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -36,7 +35,7 @@
     height: 100%;
     background: linear-gradient(to bottom,
             rgba(10, 14, 39, 0.4) 0%,
-            rgba(10, 14, 39, 0.4) 80%,
+            rgba(10, 14, 39, 0.4) 65%,
             #0a0e27 100%);
     z-index: 2;
 }
@@ -317,7 +316,10 @@
     gap: 1rem;
     margin-top: 3.8rem;
     padding: 1.2rem 2.5rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    background: linear-gradient(135deg,
+            rgba(95, 195, 228, 0.2) 0%,
+            rgba(139, 26, 158, 0.2) 50%,
+            rgba(255, 102, 204, 0.2) 100%);
     backdrop-filter: blur(20px) saturate(180%);
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;

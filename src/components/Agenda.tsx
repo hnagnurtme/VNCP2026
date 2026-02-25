@@ -160,7 +160,7 @@ const Agenda: React.FC = () => {
                         <h2 className="agenda-title-cassette">Agenda</h2>
                     </div>
                     <p className="agenda-main-desc">
-                        Bạn sẽ được trải nghiệm hành trình thoát khỏi mê cung từ việc khai phá sức mạnh công nghệ, thấu cảm chiều sâu bản sắc, đến việc cùng nhau kiến tạo những viễn cảnh tương lai.
+                        Bạn sẽ được trải nghiệm hành trình thoát khỏi mê cung từ việc khai phá sức mạnh công nghệ, thấu cảm chiều&nbsp;sâu bản sắc, đến việc cùng nhau kiến tạo những viễn cảnh tương lai.
                     </p>
                 </div>
 

@@ -51,7 +51,8 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 35px rgba(192, 132, 252, 0.4);
-    transform: translateX(-35%);
+    transform: translateX(-18%);
+    /* Shifted further left */
     padding-bottom: 0.15em;
     /* Prevent descender clipping */
 }
@@ -64,7 +65,8 @@
     margin-top: -1.5rem;
     /* Further reduced to bring lines even closer */
     width: 100%;
-    transform: translateX(2%);
+    transform: translateX(6%);
+    /* Shifted further left */
 }
 
 .vcp-badge {

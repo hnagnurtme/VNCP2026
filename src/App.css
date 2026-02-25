@@ -3,6 +3,7 @@
     width: 100%;
     background: #050508;
     overflow: hidden;
+    margin-top: -10vh;
 }
 
 .unified-bg-wrapper::before {
@@ -15,11 +16,11 @@
     /* Gradient layers for smooth blending at top and bottom */
     background:
         linear-gradient(to top, #0a0e27 0%, transparent 15vh),
-        linear-gradient(to bottom, #0a0e27 0%, transparent 15vh),
+        linear-gradient(to bottom, #0a0e27 0%, transparent 25vh),
         url('./assets/unified-bg-v2.jpg') no-repeat center center;
     background-size: cover, cover, cover;
-    opacity: 0.45;
-    /* Slightly increased for visibility with gradients */
+    opacity: 0.65;
+    /* Increased for better visibility as requested */
     z-index: 0;
 }
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import './Speaker.css';
 import speaker1 from '../assets/speaker/ANH1.png';
 import speaker1Detail from '../assets/speaker/details/ANH1.png';
@@ -101,8 +102,8 @@ const Speaker: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Right: Detail Panel (25%) - Conditional */}
-                    {showDetail && (
+                    {/* Right: Detail Panel - Rendered via Portal to avoid clipping */}
+                    {showDetail && createPortal(
                         <div className="speaker-detail">
                             <div className="speaker-detail-card">
                                 <button
@@ -131,7 +132,8 @@ const Speaker: React.FC = () => {
                                     )}
                                 </div>
                             </div>
-                        </div>
+                        </div>,
+                        document.body
                     )}
                 </div>
             </div>
