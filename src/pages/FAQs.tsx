@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './FAQs.css';
 
@@ -190,7 +189,6 @@ const FAQs: React.FC<FAQsProps> = ({ onNavigate }) => {
 
     return (
         <div className="faqs-page">
-            <Navbar currentPage="faqs" onNavigate={onNavigate ?? (() => { })} />
 
             <div className="faqs-container">
                 {/* Hero */}

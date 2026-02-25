@@ -1,7 +1,34 @@
 import React, { useState, useRef } from 'react';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './Gallery.css';
+import gallery1 from '../assets/gallery/gallery1.jpg';
+import gallery2 from '../assets/gallery/gallery2.jpg';
+import gallery3 from '../assets/gallery/gallery3.jpg';
+import gallery4 from '../assets/gallery/gallery4.jpg';
+import gallery5 from '../assets/gallery/gallery5.jpg';
+import gallery6 from '../assets/gallery/gallery6.jpg';
+import gallery7 from '../assets/gallery/gallery7.jpg';
+import gallery8 from '../assets/gallery/gallery8.jpg';
+import gallery9 from '../assets/gallery/gallery9.jpg';
+import gallery10 from '../assets/gallery/gallery10.jpg';
+import gallery11 from '../assets/gallery/gallery11.jpg';
+import gallery12 from '../assets/gallery/gallery12.jpg';
+import gallery13 from '../assets/gallery/gallery13.jpg';
+import gallery14 from '../assets/gallery/gallery14.jpg';
+import gallery15 from '../assets/gallery/gallery15.jpg';
+import gallery16 from '../assets/gallery/gallery16.jpg';
+import gallery17 from '../assets/gallery/gallery17.jpg';
+import gallery18 from '../assets/gallery/gallery18.jpg';
+import gallery19 from '../assets/gallery/gallery19.jpg';
+import gallery20 from '../assets/gallery/gallery20.jpg';
+import gallery21 from '../assets/gallery/gallery21.jpg';
+import gallery22 from '../assets/gallery/gallery22.jpg';
+import gallery23 from '../assets/gallery/gallery23.jpg';
+import gallery24 from '../assets/gallery/gallery24.jpg';
+import gallery25 from '../assets/gallery/gallery25.jpg';
+import gallery26 from '../assets/gallery/gallery26.jpg';
+
+
 
 interface GalleryPost {
     id: number;
@@ -16,32 +43,32 @@ interface GalleryPost {
 
 // Community sample posts — replace imgSrc or remove to show placeholder
 const communityPosts: GalleryPost[] = [
-    { id: 1, name: 'Minh Anh T.', touchId: '#VCP‑0042', caption: '✨ Không khí tại khu vực AI Workshop quá đỉnh!', aspectHeight: 72, timestamp: '23/11/2026', likes: 34 },
-    { id: 2, name: 'Quang Huy N.', touchId: '#VCP‑0117', caption: 'Check-in cùng Touch ID của mình nào 🫶', aspectHeight: 100, timestamp: '23/11/2026', likes: 58 },
-    { id: 3, name: 'Thảo Linh P.', touchId: '#VCP‑0203', caption: 'Talkshow của GS. Fei‑Fei Li — mind blown 🤯', aspectHeight: 68, timestamp: '24/11/2026', likes: 91 },
-    { id: 4, name: 'Gia Bảo L.', touchId: '#VCP‑0089', caption: 'Avatar 3D của mình ra lò rồi 🎭', aspectHeight: 115, timestamp: '24/11/2026', likes: 47 },
-    { id: 5, name: 'Phương Vy T.', touchId: '#VCP‑0311', caption: 'Main Concert 🎶 — khoảnh khắc này không thể quên!', aspectHeight: 80, timestamp: '25/11/2026', likes: 122 },
-    { id: 6, name: 'Tuấn Khải D.', touchId: '#VCP‑0058', caption: 'Pitching session — hồi hộp mà vui lắm 🚀', aspectHeight: 62, timestamp: '25/11/2026', likes: 29 },
-    { id: 7, name: 'Bảo Ngọc H.', touchId: '#VCP‑0175', caption: 'Khu trải nghiệm VR/AR thật sự ảo diệu ✨', aspectHeight: 90, timestamp: '26/11/2026', likes: 66 },
-    { id: 8, name: 'Thanh Tùng V.', touchId: '#VCP‑0240', caption: 'Đội sáng tạo của mình — cực chiến! 🔥', aspectHeight: 75, timestamp: '26/11/2026', likes: 83 },
-    { id: 9, name: 'Kim Ngân L.', touchId: '#VCP‑0302', caption: 'Concept "Mê cung bản sắc" đẹp hơn mình tưởng 💜', aspectHeight: 60, timestamp: '27/11/2026', likes: 105 },
-    { id: 10, name: 'Đức Minh T.', touchId: '#VCP‑0421', caption: 'Bế mạc — lưu lại kỷ niệm này cho muôn đời 🌟', aspectHeight: 88, timestamp: '29/11/2026', likes: 148 },
-    { id: 11, name: 'Hà Phương N.', touchId: '#VCP‑0136', caption: 'Mình và team vừa hoàn thành bài trắc nghiệm rồi! 🎯', aspectHeight: 70, timestamp: '23/11/2026', likes: 41 },
-    { id: 12, name: 'Trọng Nhân B.', touchId: '#VCP‑0287', caption: 'Khoảnh khắc "Chạm Công nghệ" không thể nào quên 💡', aspectHeight: 95, timestamp: '23/11/2026', likes: 53 },
-    { id: 13, name: 'Yến Nhi V.', touchId: '#VCP‑0193', caption: 'Lần đầu trải nghiệm Personal Branding cùng chuyên gia 🪞', aspectHeight: 65, timestamp: '24/11/2026', likes: 37 },
-    { id: 14, name: 'Duy Khang P.', touchId: '#VCP‑0354', caption: 'AI tạo hình của mình xịn ghê 🤖✨', aspectHeight: 108, timestamp: '24/11/2026', likes: 76 },
-    { id: 15, name: 'Thu Hà L.', touchId: '#VCP‑0071', caption: 'Đêm nhạc cuối cùng — cảm xúc vỡ oà 💫', aspectHeight: 78, timestamp: '25/11/2026', likes: 139 },
-    { id: 16, name: 'Minh Khoa T.', touchId: '#VCP‑0418', caption: 'Góc triển lãm Di sản Văn hoá — quá đẹp! 🏛️', aspectHeight: 55, timestamp: '25/11/2026', likes: 62 },
-    { id: 17, name: 'Ánh Tuyết H.', touchId: '#VCP‑0162', caption: 'Soobin biểu diễn live — giọng hay quá trời 🎤', aspectHeight: 92, timestamp: '26/11/2026', likes: 187 },
-    { id: 18, name: 'Quốc Đạt N.', touchId: '#VCP‑0229', caption: 'Team Creative Collaboration của mình nè 🎨', aspectHeight: 73, timestamp: '26/11/2026', likes: 44 },
-    { id: 19, name: 'Ngọc Trân P.', touchId: '#VCP‑0397', caption: 'Touch ID được in ra rồi — đẹp lắm á! 🪪', aspectHeight: 60, timestamp: '27/11/2026', likes: 58 },
-    { id: 20, name: 'Hoàng Long V.', touchId: '#VCP‑0083', caption: 'Mentor feedback session — học được rất nhiều 🧠', aspectHeight: 85, timestamp: '27/11/2026', likes: 31 },
-    { id: 21, name: 'Kiều Trinh N.', touchId: '#VCP‑0345', caption: 'Mình tự hào vì đã dũng cảm lên pitching 🏆', aspectHeight: 67, timestamp: '28/11/2026', likes: 94 },
-    { id: 22, name: 'Văn Hào T.', touchId: '#VCP‑0210', caption: 'Buổi sáng Day 2 — năng lượng cực kỳ tích cực ☀️', aspectHeight: 100, timestamp: '24/11/2026', likes: 49 },
-    { id: 23, name: 'Thuỳ Dung L.', touchId: '#VCP‑0468', caption: 'Không gian Talkshow thiết kế quá ấn tượng 🎤', aspectHeight: 58, timestamp: '28/11/2026', likes: 72 },
-    { id: 24, name: 'Đình Phát N.', touchId: '#VCP‑0122', caption: 'Multimedia showcase — tác phẩm của cả đội mình nè 🎞️', aspectHeight: 118, timestamp: '28/11/2026', likes: 86 },
-    { id: 25, name: 'Châu Anh T.', touchId: '#VCP‑0501', caption: 'Tối cuối cùng — cả nhóm ôm nhau khóc luôn 🥺💜', aspectHeight: 82, timestamp: '29/11/2026', likes: 211 },
-    { id: 26, name: 'Mỹ Linh V.', touchId: '#VCP‑0339', caption: 'VCP 2026 — hẹn gặp lại ở lần sau! 👋🌟', aspectHeight: 70, timestamp: '29/11/2026', likes: 163 },
+    { id: 1, name: 'Minh Anh T.', touchId: '#VCP‑0042', caption: '✨ Không khí tại khu vực AI Workshop quá đỉnh!', imgSrc: gallery1, aspectHeight: 72, timestamp: '23/11/2026', likes: 34 },
+    { id: 2, name: 'Quang Huy N.', touchId: '#VCP‑0117', caption: 'Check-in cùng Touch ID của mình nào 🫶', imgSrc: gallery2, aspectHeight: 100, timestamp: '23/11/2026', likes: 58 },
+    { id: 3, name: 'Thảo Linh P.', touchId: '#VCP‑0203', caption: 'Talkshow của GS. Fei‑Fei Li — mind blown 🤯', imgSrc: gallery3, aspectHeight: 68, timestamp: '24/11/2026', likes: 91 },
+    { id: 4, name: 'Đình Phát N.', touchId: '#VCP‑0122', caption: 'Multimedia showcase — tác phẩm của cả đội mình nè 🎞️', imgSrc: gallery24, aspectHeight: 118, timestamp: '28/11/2026', likes: 86 },
+    { id: 5, name: 'Phương Vy T.', touchId: '#VCP‑0311', caption: 'Main Concert 🎶 — khoảnh khắc này không thể quên!', imgSrc: gallery5, aspectHeight: 80, timestamp: '25/11/2026', likes: 122 },
+    { id: 6, name: 'Tuấn Khải D.', touchId: '#VCP‑0058', caption: 'Pitching session — hồi hộp mà vui lắm 🚀', imgSrc: gallery6, aspectHeight: 62, timestamp: '25/11/2026', likes: 29 },
+    { id: 7, name: 'Bảo Ngọc H.', touchId: '#VCP‑0175', caption: 'Khu trải nghiệm VR/AR thật sự ảo diệu ✨', imgSrc: gallery7, aspectHeight: 90, timestamp: '26/11/2026', likes: 66 },
+    { id: 8, name: 'Thanh Tùng V.', touchId: '#VCP‑0240', caption: 'Đội sáng tạo của mình — cực chiến! 🔥', imgSrc: gallery8, aspectHeight: 75, timestamp: '26/11/2026', likes: 83 },
+    { id: 9, name: 'Kim Ngân L.', touchId: '#VCP‑0302', caption: 'Concept "Mê cung bản sắc" đẹp hơn mình tưởng 💜', imgSrc: gallery9, aspectHeight: 60, timestamp: '27/11/2026', likes: 105 },
+    { id: 10, name: 'Đức Minh T.', touchId: '#VCP‑0421', caption: 'Bế mạc — lưu lại kỷ niệm này cho muôn đời 🌟', imgSrc: gallery10, aspectHeight: 88, timestamp: '29/11/2026', likes: 148 },
+    { id: 11, name: 'Hà Phương N.', touchId: '#VCP‑0136', caption: 'Mình và team vừa hoàn thành bài trắc nghiệm rồi! 🎯', imgSrc: gallery11, aspectHeight: 70, timestamp: '23/11/2026', likes: 41 },
+    { id: 12, name: 'Trọng Nhân B.', touchId: '#VCP‑0287', caption: 'Khoảnh khắc "Chạm Công nghệ" không thể nào quên 💡', imgSrc: gallery12, aspectHeight: 95, timestamp: '23/11/2026', likes: 53 },
+    { id: 13, name: 'Yến Nhi V.', touchId: '#VCP‑0193', caption: 'Lần đầu trải nghiệm Personal Branding cùng chuyên gia 🪞', imgSrc: gallery13, aspectHeight: 65, timestamp: '24/11/2026', likes: 37 },
+    { id: 14, name: 'Duy Khang P.', touchId: '#VCP‑0354', caption: 'AI tạo hình của mình xịn ghê 🤖✨', imgSrc: gallery14, aspectHeight: 108, timestamp: '24/11/2026', likes: 76 },
+    { id: 15, name: 'Thu Hà L.', touchId: '#VCP‑0071', caption: 'Đêm nhạc cuối cùng — cảm xúc vỡ oà 💫', imgSrc: gallery15, aspectHeight: 78, timestamp: '25/11/2026', likes: 139 },
+    { id: 16, name: 'Minh Khoa T.', touchId: '#VCP‑0418', caption: 'Góc triển lãm Di sản Văn hoá — quá đẹp! 🏛️', imgSrc: gallery16, aspectHeight: 55, timestamp: '25/11/2026', likes: 62 },
+    { id: 17, name: 'Ánh Tuyết H.', touchId: '#VCP‑0162', caption: 'Soobin biểu diễn live — giọng hay quá trời 🎤', imgSrc: gallery17, aspectHeight: 92, timestamp: '26/11/2026', likes: 187 },
+    { id: 18, name: 'Quốc Đạt N.', touchId: '#VCP‑0229', caption: 'Team Creative Collaboration của mình nè 🎨', imgSrc: gallery18, aspectHeight: 73, timestamp: '26/11/2026', likes: 44 },
+    { id: 19, name: 'Ngọc Trân P.', touchId: '#VCP‑0397', caption: 'Touch ID được in ra rồi — đẹp lắm á! 🪪', imgSrc: gallery19, aspectHeight: 60, timestamp: '27/11/2026', likes: 58 },
+    { id: 20, name: 'Hoàng Long V.', touchId: '#VCP‑0083', caption: 'Mentor feedback session — học được rất nhiều 🧠', imgSrc: gallery20, aspectHeight: 85, timestamp: '27/11/2026', likes: 31 },
+    { id: 21, name: 'Kiều Trinh N.', touchId: '#VCP‑0345', caption: 'Mình tự hào vì đã dũng cảm lên pitching 🏆', imgSrc: gallery21, aspectHeight: 67, timestamp: '28/11/2026', likes: 94 },
+    { id: 22, name: 'Văn Hào T.', touchId: '#VCP‑0210', caption: 'Buổi sáng Day 2 — năng lượng cực kỳ tích cực ☀️', imgSrc: gallery22, aspectHeight: 100, timestamp: '24/11/2026', likes: 49 },
+    { id: 23, name: 'Thuỳ Dung L.', touchId: '#VCP‑0468', caption: 'Không gian Talkshow thiết kế quá ấn tượng 🎤', imgSrc: gallery23, aspectHeight: 58, timestamp: '28/11/2026', likes: 72 },
+    { id: 24, name: 'Gia Bảo L.', touchId: '#VCP‑0089', caption: 'Avatar 3D của mình ra lò rồi 🎭', imgSrc: gallery4, aspectHeight: 115, timestamp: '24/11/2026', likes: 47 },
+    { id: 25, name: 'Châu Anh T.', touchId: '#VCP‑0501', caption: 'Tối cuối cùng — cả nhóm ôm nhau khóc luôn 🥺💜', imgSrc: gallery25, aspectHeight: 82, timestamp: '29/11/2026', likes: 211 },
+    { id: 26, name: 'Mỹ Linh V.', touchId: '#VCP‑0339', caption: 'VCP 2026 — hẹn gặp lại ở lần sau! 👋🌟', imgSrc: gallery26, aspectHeight: 70, timestamp: '29/11/2026', likes: 163 },
 ];
 
 const placeholderGradients = [
@@ -109,7 +136,6 @@ const Gallery: React.FC<GalleryProps> = ({ onNavigate }) => {
 
     return (
         <div className="gallery-page">
-            <Navbar currentPage="gallery" onNavigate={onNavigate ?? (() => { })} />
 
             <div className="gallery-container">
                 {/* Hero */}
