@@ -210,7 +210,7 @@ const Contact: React.FC = () => {
                         <div className="thankyou-cta-box">
                             <span className="thankyou-cta-icon">🪪</span>
                             <p className="thankyou-cta-text">
-                                Tham gia <strong style={{ textDecoration: 'underline' }}>Person Branding Test</strong> để định danh bản sắc và nhận <strong>Touch ID độc bản</strong>
+                                Tham gia <strong style={{ textDecoration: 'underline' }}>Personal Branding Test</strong> để định danh bản sắc và nhận <strong>Touch ID độc bản</strong>
                             </p>
                         </div>
 

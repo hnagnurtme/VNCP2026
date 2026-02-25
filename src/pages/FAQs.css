@@ -43,10 +43,13 @@
     font-family: '1FTVVIP-SoyuzGrotesk', 'Helvetica Neue', sans-serif;
     font-size: clamp(2.4rem, 5vw, 4rem);
     font-weight: 700;
-    background: linear-gradient(135deg, #5fc3e4, #dd88ff);
+    /* Four-color vibrant gradient matching Get in Touch */
+    background: linear-gradient(90deg, #38bdf8 0%, #c084fc 40%, #fbbf24 75%, #f59e0b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    /* Subtler neon glow */
+    text-shadow: 0 0 25px rgba(192, 132, 252, 0.3);
     margin: 0 0 1.25rem;
     line-height: 1.1;
 }
@@ -61,6 +64,122 @@
 
 .faqs-subtitle strong {
     color: rgba(255, 255, 255, 0.9);
+}
+
+/* ---- Search Bar ---- */
+.faqs-search-wrapper {
+    max-width: 600px;
+    margin: 1.5rem auto 4rem;
+    padding: 0 1rem;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.faqs-search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    padding: 0.8rem 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.faqs-search-container:focus-within {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(95, 195, 228, 0.4);
+    box-shadow: 0 0 25px rgba(95, 195, 228, 0.15);
+    transform: translateY(-2px);
+}
+
+.search-icon {
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    opacity: 0.6;
+}
+
+.faqs-search-input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.05rem;
+    font-family: inherit;
+    outline: none;
+}
+
+.faqs-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.search-clear {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+    margin-left: 0.5rem;
+}
+
+.search-clear:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* ---- No Results State ---- */
+.faqs-no-results {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    margin: 2rem 0;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.no-results-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.3;
+}
+
+.faqs-no-results h3 {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 0.8rem;
+    font-family: '1FTVVIP-SoyuzGrotesk', sans-serif;
+}
+
+.faqs-no-results p {
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 2rem;
+}
+
+.clear-search-btn {
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, #22d3ee, #c084fc);
+    border: none;
+    border-radius: 999px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(192, 132, 252, 0.3);
+}
+
+.clear-search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(192, 132, 252, 0.4);
+    filter: brightness(1.1);
 }
 
 /* ---- Endorsement Banner ---- */

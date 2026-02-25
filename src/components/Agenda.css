@@ -70,8 +70,8 @@
 }
 
 .vcp-badge {
-    background: #22d3ee;
-    /* Brighter Cyan */
+    background: #fbbf24;
+    /* Golden Orange (Cam Vàng) */
     color: #000;
     font-family: '1FTVVIP-SoyuzGrotesk', sans-serif;
     font-size: clamp(1rem, 2vw, 1.6rem);

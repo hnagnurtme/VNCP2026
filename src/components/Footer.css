@@ -130,28 +130,39 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(74, 93, 255, 0.8), rgba(180, 100, 255, 0.7));
-    /* Vibrant bluish-purple gradient */
-    mix-blend-mode: multiply;
-    /* Tints the natural map colors */
+    /* Richer, more vibrant gradient for the "Wow" effect */
+    background:
+        linear-gradient(135deg, rgba(34, 211, 238, 0.4) 0%, transparent 60%),
+        linear-gradient(225deg, rgba(168, 85, 247, 0.5) 0%, transparent 60%),
+        rgba(10, 14, 39, 0.2);
+    mix-blend-mode: overlay;
+    /* Changed from multiply for more 'glow' and vibrancy */
     pointer-events: none;
-    opacity: 0.8;
-    /* Reduced opacity by 20% */
-    transition: opacity 0.5s ease;
+    opacity: 1;
+    /* Full opacity of the layer, control vibrancy via rgba alpha */
+    transition: all 0.5s ease;
     z-index: 2;
 }
 
 .map-wrapper:hover::after {
-    opacity: 0;
+    opacity: 0.3;
+    /* Keep a hint of color even on hover */
+    mix-blend-mode: normal;
 }
 
 .map-wrapper iframe {
     display: block;
     width: 100%;
     height: 100%;
-    filter: brightness(1.2);
-    /* Increased brightness by 20% to pop under the tint */
-    transition: opacity 0.5s ease, filter 0.5s ease;
+    filter: grayscale(0.5) contrast(1.1) brightness(0.8);
+    /* Darken and desaturate map to let colors pop */
+    transition: all 0.5s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.map-wrapper:hover iframe {
+    filter: grayscale(0) contrast(1) brightness(1);
 }
 
 /* Social Links */
