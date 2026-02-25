@@ -1,10 +1,6 @@
 import React from 'react';
 import './Footer.css';
 import typefaceImg from '../assets/typeface.png';
-import facebookImg from '../assets/facebook.png';
-import instagramImg from '../assets/instagram.png';
-import youtubeImg from '../assets/youtube.png';
-import zaloImg from '../assets/zalo.png';
 
 const Footer: React.FC = () => {
     return (
