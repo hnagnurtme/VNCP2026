@@ -99,6 +99,7 @@
 }
 
 .gallery-upload-title {
+    font-family: '1FTVVIPNeueHaasGrotesk-Reg', 'Helvetica Neue', sans-serif;
     font-size: 1.05rem;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.9);
