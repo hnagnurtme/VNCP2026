@@ -40,7 +40,7 @@
 }
 
 .faqs-title {
-    font-family: '1FTV-VIP-Soyuz-Grotesk', 'Helvetica Neue', sans-serif;
+    font-family: '1FTVVIP-SoyuzGrotesk', 'Helvetica Neue', sans-serif;
     font-size: clamp(2.4rem, 5vw, 4rem);
     font-weight: 700;
     background: linear-gradient(135deg, #5fc3e4, #dd88ff);

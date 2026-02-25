@@ -140,7 +140,7 @@ const Gallery: React.FC<GalleryProps> = ({ onNavigate }) => {
             <div className="gallery-container">
                 {/* Hero */}
                 <div className="gallery-hero">
-                    <div className="gallery-badge">Không gian ký ức chung</div>
+                    <div className="gallery-badge">Không gian ký ức</div>
                     <h1 className="gallery-title">Ký ức VCP 2026</h1>
                     <p className="gallery-subtitle">
                         Mỗi bức ảnh là một <strong>dấu chạm bản sắc</strong> — nơi bạn lưu giữ khoảnh khắc của chính mình tại sự kiện. Hãy chia sẻ cùng cộng đồng VCP 2026.
