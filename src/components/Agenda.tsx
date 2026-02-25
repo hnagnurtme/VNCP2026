@@ -1,187 +1,204 @@
 import React from 'react';
 import './Agenda.css';
 
-interface DayEvent {
-    day: string;
-    date: string;
-    leftContent?: React.ReactNode[];
-    rightContent?: React.ReactNode[];
+interface AgendaEvent {
+    title: string;
+    details: string;
 }
 
-interface Floor {
+interface AgendaDay {
+    weekdayNum: string;
+    weekdayText: string;
+    events: AgendaEvent[];
+    colorClass: string;
+}
+
+interface AgendaFloor {
     number: string;
     title: string;
-    days: DayEvent[];
+    description: string;
+    days: AgendaDay[];
 }
 
-const floors: Floor[] = [
+const agendaData: AgendaFloor[] = [
     {
         number: 'TẦNG 1',
         title: 'CHẠM CÔNG NGHỆ - TECH TOUCH',
+        description: 'Khai phá hành trình "Dấu Chạm Văn Hóa" qua sức mạnh công nghệ.',
         days: [
             {
-                day: 'DAY 1',
-                date: '16/3',
-                leftContent: [
-                    <><strong>Lễ khai mạc</strong> khai mở hành trình “Dấu Chạm Văn Hóa”</>,
-                    <><strong>Talkshow</strong>: Công nghệ mở ra cơ hội gì cho ngành sáng tạo? - Speakers: Bà Fei-Fei Li, Ông Nguyễn Đắc Tình</>,
-                    <><strong>“Chạm”</strong> không gian triển lãm kết hợp AI và chất liệu văn hóa</>,
-                ],
-                rightContent: undefined,
+                weekdayNum: '1',
+                weekdayText: 'THỨ 2 (23/11)',
+                colorClass: 'cassette-red',
+                events: [
+                    {
+                        title: 'LỄ KHAI MẠC',
+                        details: 'Mở đầu hành trình “Dấu Chạm Văn Hóa”. Speakers: Bà Fei-Fei Li, Ông Nguyễn Đắc Tình'
+                    },
+                    {
+                        title: 'TALKSHOW: CÔNG NGHỆ & SÁNG TẠO',
+                        details: 'Mở ra cơ hội mới cho ngành sáng tạo.'
+                    }
+                ]
             },
             {
-                day: 'DAY 2',
-                date: '17/3',
-                leftContent: undefined,
-                rightContent: [
-                    <><strong>Workshop trải nghiệm</strong>: Ứng dụng AI trong thiết kế hình ảnh và sáng tạo nội dung với sự tư vấn trực tiếp cùng chuyên gia công nghệ.</>,
-                    <><strong>Mini Challenge</strong>: Thực hành sáng tạo sản phẩm trong 3 giờ với công cụ AI.</>,
-                    <><strong>“Chạm”</strong> không gian trải nghiệm âm nhạc số đa giác quan</>,
-                ],
+                weekdayNum: '2',
+                weekdayText: 'THỨ 3 (24/11)',
+                colorClass: 'cassette-green',
+                events: [
+                    {
+                        title: 'WORKSHOP TRẢI NGHIỆM AI',
+                        details: 'Ứng dụng AI trong thiết kế hình ảnh và sáng tạo nội dung.'
+                    },
+                    {
+                        title: 'MINI CHALLENGE: 3H SÁNG TẠO',
+                        details: 'Thực hành sáng tạo sản phẩm cùng công cụ AI.'
+                    }
+                ]
             },
             {
-                day: 'DAY 3',
-                date: '18/3',
-                leftContent: [
-                    <><strong>Talkshow</strong>: Câu chuyện văn hóa trong thời đại số. Speakers: NSND Tự Long, Soobin Hoàng Sơn</>,
-                    <><strong>“Chạm”</strong> văn hóa với showcase trưng bày sản phẩm truyền thông bằng công nghệ VR và AR</>,
-                    <><strong>Cuộc thi</strong> “Giải mã công nghệ – Bật tư duy số”</>,
-                ],
-                rightContent: undefined,
-            },
-        ],
+                weekdayNum: '3',
+                weekdayText: 'THỨ 4 (25/11)',
+                colorClass: 'cassette-blue',
+                events: [
+                    {
+                        title: 'TALKSHOW: VĂN HÓA SỐ',
+                        details: 'Speakers: NSND Tự Long, Soobin Hoàng Sơn.'
+                    },
+                    {
+                        title: 'CUỘC THI: GIẢI MÃ CÔNG NGHỆ',
+                        details: 'Bật tư duy số - Showcase VR/AR Heritage.'
+                    }
+                ]
+            }
+        ]
     },
     {
         number: 'TẦNG 2',
         title: 'CHẠM BẢN SẮC - IDENTITY TOUCH',
+        description: 'Thấu cảm chiều sâu bản sắc cá nhân và truyền thống.',
         days: [
             {
-                day: 'DAY 4',
-                date: '19/3',
-                leftContent: undefined,
-                rightContent: [
-                    'Không gian nghệ thuật tương tác "Bền đỗ bản sắc"',
-                    'Trưng bày chất liệu văn hóa truyền thống được tái diễn giải bằng thiết kế hiện đại',
-                    'Chạm bản sắc – Reflection Booth: Ghi lại câu chuyện cá nhân',
-                ],
+                weekdayNum: '4',
+                weekdayText: 'THỨ 5 (26/11)',
+                colorClass: 'cassette-pink',
+                events: [
+                    {
+                        title: 'BẢN ĐỒ BẢN SẮC',
+                        details: 'Không gian nghệ thuật tương tác và trưng bày văn hóa truyền thống.'
+                    },
+                    {
+                        title: 'REFLECTION BOOTH',
+                        details: 'Chạm bản sắc - Ghi lại câu chuyện cá nhân.'
+                    }
+                ]
             },
             {
-                day: 'DAY 5',
-                date: '20/3',
-                leftContent: [
-                    'Talkshow: Bản sắc cá nhân có thể trở thành lợi thế trong ngành sáng tạo? Speakers: Victor VG, Phương VG',
-                    'Personal Branding Test: Tham gia bài đánh giá bản sắc sáng tạo cá nhân cùng sự tư vấn trực tiếp từ chuyên gia',
-                    'Creative Avatar Station: Tạo lập tức tranh phiên bản 3D theo bản sắc của riêng bạn',
-                ],
-                rightContent: undefined,
-            },
-        ],
+                weekdayNum: '5',
+                weekdayText: 'THỨ 6 (27/11)',
+                colorClass: 'cassette-cyan',
+                events: [
+                    {
+                        title: 'TALKSHOW: BẢN SẮC CÁ NHÂN',
+                        details: 'Speakers: Victor Vũ, Phương Vũ.'
+                    },
+                    {
+                        title: 'CREATIVE AVATAR STATION',
+                        details: 'Tạo lập bức tranh phiên bản 3D theo bản sắc riêng.'
+                    }
+                ]
+            }
+        ]
     },
     {
         number: 'TẦNG 3',
         title: 'CHẠM TƯƠNG LAI - FUTURE TOUCH',
+        description: 'Cùng nhau kiến tạo những viễn cảnh tương lai đột phá.',
         days: [
             {
-                day: 'DAY 6',
-                date: '21/3',
-                leftContent: undefined,
-                rightContent: [
-                    'Identity Reflection Zone: Người tham gia hoàn thiện "Dấu chạm bản sắc" trên hệ thống digital và nhận thẻ định danh cá nhân',
-                    'Creative Collaboration Board: Khu vực ghép nhóm tự do theo điểm mạnh và định hướng đồng để cùng đề xuất một ý tưởng sáng tạo trong 60 phút',
-                    'Final Pitch: Trình bày ý tưởng trước hội đồng mentor. Vinh danh và trao giải cho ý tưởng xuất sắc nhất',
-                ],
+                weekdayNum: '6',
+                weekdayText: 'THỨ 7 (28/11)',
+                colorClass: 'cassette-dark-green',
+                events: [
+                    {
+                        title: 'IDENTITY REFLECTION ZONE',
+                        details: 'Hoàn thiện "Dấu chạm bản sắc" trên hệ thống digital.'
+                    },
+                    {
+                        title: 'FINAL PITCH & COLLABORATION',
+                        details: 'Vinh danh và trao giải cho ý tưởng xuất sắc nhất.'
+                    }
+                ]
             },
             {
-                day: 'DAY 7',
-                date: '22/3',
-                leftContent: [
-                    'Tech Touch Station: Trải nghiệm công nghệ VR, giao lưu cùng nghệ sĩ through qua kết nối từ xa',
-                    'Main Concert: Đêm nhạc hoành tráng với sân khấu công nghệ, ánh sáng hiện đại và hiệu ứng tương tác đa chiều',
-                ],
-                rightContent: undefined,
-            },
-        ],
-    },
+                weekdayNum: '7',
+                weekdayText: 'CHỦ NHẬT (29/11)',
+                colorClass: 'cassette-orange',
+                events: [
+                    {
+                        title: 'TECH TOUCH STATION',
+                        details: 'Trải nghiệm công nghệ VR, giao lưu cùng nghệ sĩ.'
+                    },
+                    {
+                        title: 'VCP 2026 MAIN CONCERT',
+                        details: 'Đêm nhạc hoành tráng - Hiệu ứng tương tác đa chiều.'
+                    }
+                ]
+            }
+        ]
+    }
 ];
 
 const Agenda: React.FC = () => {
     return (
-        <section id="agenda" className="agenda-section">
-            <div className="agenda-container">
-                <h2 className="agenda-title">Agenda</h2>
-
-                {/* Top - Description */}
-                <div className="description-section">
-                    <div className="description-card">
-                        <h3 className="description-title">Hành Trình Khám Phá</h3>
-                        <p className="description-text">
-                            Bạn sẽ được trải nghiệm hành trình thoát khỏi mê cung từ việc{' '}
-                            <span className="highlight-text">khai phá sức mạnh công nghệ</span>,{' '}
-                            <span className="highlight-text">thấu cảm chiều sâu bản sắc</span>, đến việc cùng nhau{' '}
-                            <span className="highlight-text">kiến tạo những viễn cảnh tương lai</span>.
-                        </p>
+        <section id="agenda" className="agenda-section-cassette">
+            <div className="agenda-container-cassette">
+                <div className="agenda-header-cassette">
+                    <h1 className="weekly-text">Weekly</h1>
+                    <div className="deals-row">
+                        <span className="vcp-badge">VCP</span>
+                        <h2 className="agenda-title-cassette">Agenda</h2>
                     </div>
+                    <p className="agenda-main-desc">
+                        Bạn sẽ được trải nghiệm hành trình thoát khỏi mê cung từ việc khai phá sức mạnh công nghệ, thấu cảm chiều sâu bản sắc, đến việc cùng nhau kiến tạo những viễn cảnh tương lai.
+                    </p>
                 </div>
 
-                {/* Vertical Timeline */}
-                <div className="timeline-vertical">
-                    <div className="timeline-line"></div>
-
-                    {floors.map((floor, floorIdx) => (
-                        <div className="floor-section" key={floorIdx}>
-                            {/* Floor Header Card */}
-                            <div className="floor-card-wrapper">
-                                <div className="floor-card">
-                                    <div className="floor-card-inner">
-                                        <h3 className="floor-number">{floor.number}</h3>
-                                        <p className="floor-title">{floor.title}</p>
-                                    </div>
-                                </div>
+                <div className="agenda-floors">
+                    {agendaData.map((floor, fIdx) => (
+                        <div className="floor-group" key={fIdx}>
+                            <div className="floor-header">
+                                <span className="floor-num">{floor.number}</span>
+                                <h3 className="floor-title-full">{floor.title}</h3>
+                                <p className="floor-desc">{floor.description}</p>
                             </div>
 
-                            {floor.days.map((dayEvent, dayIdx) => (
-                                <div className={`event-row ${dayEvent.day.toLowerCase().replace(' ', '-')}`} key={dayIdx}>
-                                    {/* Left Half: content + day-marker */}
-                                    <div className={`event-half left ${!dayEvent.leftContent ? 'empty' : ''}`}>
-                                        {dayEvent.leftContent && (
-                                            <>
-                                                <div className="event-description">
-                                                    <ul>
-                                                        {dayEvent.leftContent.map((item, i) => (
-                                                            <li key={i}>{item}</li>
-                                                        ))}
-                                                    </ul>
-                                                </div>
-                                                <div className="event-time-marker">
-                                                    <div className="event-day">{dayEvent.day}</div>
-                                                    <div className="event-time">{dayEvent.date}</div>
-                                                </div>
-                                            </>
-                                        )}
-                                    </div>
+                            <div className="agenda-stack">
+                                {floor.days.map((day, dIdx) => (
+                                    <div
+                                        className={`cassette-item ${day.colorClass}`}
+                                        key={dIdx}
+                                    >
+                                        <div className="cassette-day-tag">{day.weekdayText}</div>
 
-                                    {/* Right Half: day-marker + content */}
-                                    <div className={`event-half right ${!dayEvent.rightContent ? 'empty' : ''}`}>
-                                        {dayEvent.rightContent && (
-                                            <>
-                                                <div className="event-time-marker">
-                                                    <div className="event-day">{dayEvent.day}</div>
-                                                    <div className="event-time">{dayEvent.date}</div>
+                                        <div className="cassette-content">
+                                            {day.events.map((event, eIdx) => (
+                                                <div className="cassette-event" key={eIdx}>
+                                                    <h4 className="event-title-cassette">{event.title}</h4>
+                                                    <p className="event-details-cassette">{event.details}</p>
                                                 </div>
-                                                <div className="event-description">
-                                                    <ul>
-                                                        {dayEvent.rightContent.map((item, i) => (
-                                                            <li key={i}>{item}</li>
-                                                        ))}
-                                                    </ul>
-                                                </div>
-                                            </>
-                                        )}
+                                            ))}
+                                        </div>
+
+                                        <div className="cassette-glass-reflection"></div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     ))}
+                </div>
+
+                <div className="agenda-footer-cassette">
                 </div>
             </div>
         </section>
