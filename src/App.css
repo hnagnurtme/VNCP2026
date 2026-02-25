@@ -1,3 +1,33 @@
+.unified-bg-wrapper {
+    position: relative;
+    width: 100%;
+    background: #050508;
+    overflow: hidden;
+}
+
+.unified-bg-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient layers for smooth blending at top and bottom */
+    background:
+        linear-gradient(to top, #0a0e27 0%, transparent 15vh),
+        linear-gradient(to bottom, #0a0e27 0%, transparent 15vh),
+        url('./assets/unified-bg-v2.jpg') no-repeat center center;
+    background-size: cover, cover, cover;
+    opacity: 0.45;
+    /* Slightly increased for visibility with gradients */
+    z-index: 0;
+}
+
+.unified-bg-wrapper>* {
+    position: relative;
+    z-index: 1;
+}
+
 /* Navbar Glassmorphism */
 .navbar {
     position: fixed;
@@ -418,104 +448,5 @@
 
     .event-tagline {
         font-size: 0.875rem;
-    }
-}
-
-/* Problems Section */
-.problems-section {
-    position: relative;
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-2xl) var(--spacing-lg);
-    background: linear-gradient(180deg,
-            #0a0e27 0%,
-            #1a0033 50%,
-            #0a0e27 100%);
-    overflow: hidden;
-}
-
-.problems-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('./assets/background.png');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.15;
-    z-index: 0;
-}
-
-.problems-container {
-    position: relative;
-    z-index: 1;
-    max-width: 1000px;
-    margin: 0 auto;
-    animation: fadeInUp 1s ease-out;
-}
-
-.section-number {
-    font-family: var(--font-body);
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: var(--spacing-2xl);
-    letter-spacing: 0.02em;
-}
-
-.problems-question {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.75rem, 5vw, 3rem);
-    font-weight: 600;
-    line-height: 1.3;
-    color: #FFD700;
-    margin-bottom: var(--spacing-xl);
-    text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-}
-
-.problems-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-}
-
-.problems-text {
-    font-family: var(--font-body);
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    font-weight: 300;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.85);
-    text-align: justify;
-    letter-spacing: 0.01em;
-}
-
-.highlight {
-    color: #5fc3e4;
-    font-weight: 500;
-    position: relative;
-    text-shadow: 0 0 10px rgba(95, 195, 228, 0.3);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .problems-section {
-        padding: var(--spacing-xl) var(--spacing-md);
-    }
-
-    .section-number {
-        margin-bottom: var(--spacing-lg);
-    }
-
-    .problems-question {
-        margin-bottom: var(--spacing-md);
-    }
-
-    .problems-text {
-        text-align: left;
     }
 }

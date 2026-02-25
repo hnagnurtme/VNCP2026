@@ -23,8 +23,10 @@ const FAQsPage = ({ onNavigate }: { onNavigate: (page: Page) => void }) => <FAQs
 const MainPage = () => (
     <>
         <Hero />
-        <Problems />
-        <Agenda />
+        <div className="unified-bg-wrapper">
+            <Problems />
+            <Agenda />
+        </div>
         <Speaker />
         <Contact />
         <Footer />
