@@ -3,6 +3,12 @@ import { createPortal } from 'react-dom';
 import './Speaker.css';
 import speaker1 from '../assets/speaker/ANH1.png';
 import speaker1Detail from '../assets/speaker/details/ANH1.png';
+import feiFeiLi from '../assets/speaker/fei_fei_li.jpg';
+import nguyenDacTinh from '../assets/speaker/nguyen_dac_tinh.jpg';
+import phuongVu from '../assets/speaker/phuong_vu.jpg';
+import soobin from '../assets/speaker/soobin.jpg';
+import tuLong from '../assets/speaker/tu_long.jpg';
+import victorVu from '../assets/speaker/victor_vu.png';
 
 interface ISpeaker {
     id: number;
@@ -11,6 +17,8 @@ interface ISpeaker {
     image: string;
     detailImage: string;
     bio: string;
+    objectPosition?: string;
+    scale?: number;
     social?: {
         linkedin?: string;
         twitter?: string;
@@ -20,47 +28,56 @@ interface ISpeaker {
 const speakers: ISpeaker[] = [
     {
         id: 1,
-        name: 'Phương Vũ',
-        title: 'Tech Innovation Leader',
-        image: speaker1,
-        detailImage: speaker1Detail,
-        bio: 'Chuyên gia hàng đầu trong lĩnh vực công nghệ AI và Machine Learning với hơn 10 năm kinh nghiệm. Đã từng làm việc tại các tập đoàn công nghệ lớn và khởi nghiệp thành công nhiều dự án đổi mới sáng tạo.',
-        social: {
-            linkedin: '#',
-            twitter: '#'
-        }
+        name: 'Bà Fei-Fei Li',
+        title: 'Doanh nhân - Nhà nghiên cứu trí tuệ nhân tạo',
+        image: feiFeiLi,
+        detailImage: feiFeiLi,
+        bio: 'Đóng góp tiên phong trong lĩnh vực thị giác máy tính. Đồng sáng lập tổ chức phi lợi nhuận thúc đẩy sự đa dạng trong AI (AI4ALL) và là giáo sư Khoa Khoa học máy tính của Đại học Stanford.',
+        objectPosition: '32% center'
     },
     {
         id: 2,
-        name: 'Trần Thị B',
-        title: 'Digital Transformation Expert',
-        image: speaker1,
-        detailImage: speaker1Detail,
-        bio: 'Chuyên gia chuyển đổi số với kinh nghiệm tư vấn cho nhiều doanh nghiệp lớn. Đam mê chia sẻ kiến thức về xu hướng công nghệ và cách ứng dụng vào thực tiễn kinh doanh.',
+        name: 'Ông Nguyễn Đắc Tình',
+        title: 'Founder Vietnam MarTech & TicketX',
+        image: nguyenDacTinh,
+        detailImage: nguyenDacTinh,
+        bio: 'Hoạt động trong lĩnh vực marketing công nghệ và giải pháp vé điện tử. Tập trung xây dựng hệ sinh thái MarTech tại Việt Nam, kết nối cộng đồng marketing, công nghệ và dữ liệu nhằm thúc đẩy chuyển đổi số trong doanh nghiệp.',
+        objectPosition: '35% center',
+        scale: 1.2
     },
     {
         id: 3,
-        name: 'Lê Minh C',
-        title: 'UX/UI Design Pioneer',
-        image: speaker1,
-        detailImage: speaker1Detail,
-        bio: 'Nhà thiết kế trải nghiệm người dùng với nhiều giải thưởng quốc tế. Tin rằng thiết kế tốt có thể thay đổi cách con người tương tác với công nghệ.',
+        name: 'NSND Tự Long',
+        title: 'Nghệ sĩ Nhân dân, nghệ sĩ chèo',
+        image: tuLong,
+        detailImage: tuLong,
+        bio: 'Ghi dấu ấn qua nhiều chương trình truyền hình và sân khấu lớn, góp phần lan tỏa giá trị văn hóa dân tộc đến khán giả trẻ bằng tinh thần sáng tạo và đổi mới, kết hợp nghệ thuật truyền thống và yếu tố đương đại.',
+        objectPosition: '40% center'
     },
     {
         id: 4,
-        name: 'Phạm Đức D',
-        title: 'Blockchain Specialist',
-        image: speaker1,
-        detailImage: speaker1Detail,
-        bio: 'Chuyên gia blockchain và Web3 với kinh nghiệm phát triển nhiều dự án DeFi và NFT. Đang dẫn dắt cộng đồng blockchain tại Việt Nam.',
+        name: 'Victor Vũ',
+        title: 'Đạo diễn – Nhà sản xuất phim',
+        image: victorVu,
+        detailImage: victorVu,
+        bio: 'Một trong những đạo diễn nổi bật của điện ảnh Việt Nam đương đại, được biết đến với phong cách kể chuyện giàu chiều sâu và ngôn ngữ hình ảnh hiện đại. Chú trọng khai thác yếu tố tâm lý, văn hóa và bản sắc con người trong các tác phẩm, mang đến góc nhìn sáng tạo và giàu tính điện ảnh.',
+        objectPosition: '46% center'
     },
     {
         id: 5,
-        name: 'Hoàng Thị E',
-        title: 'Cybersecurity Expert',
-        image: speaker1,
-        detailImage: speaker1Detail,
-        bio: 'Chuyên gia an ninh mạng với chứng chỉ quốc tế. Đã bảo vệ hệ thống cho nhiều tổ chức tài chính và chính phủ khỏi các cuộc tấn công mạng.',
+        name: 'Phương Vũ',
+        title: 'Đạo diễn - Giám đốc sáng tạo',
+        image: phuongVu,
+        detailImage: phuongVu,
+        bio: 'Hoạt động trong lĩnh vực sản xuất nội dung và nghệ thuật thị giác với phong cách kể chuyện hiện đại, chú trọng ngôn ngữ hình ảnh và cảm xúc. Xây dựng câu chuyện với chủ đề về người trẻ, bản sắc và sự dịch chuyển trong đời sống đương đại.',
+    },
+    {
+        id: 6,
+        name: 'Soobin Hoàng Sơn',
+        title: 'Nghệ sĩ',
+        image: soobin,
+        detailImage: soobin,
+        bio: 'Một trong những nghệ sĩ tiêu biểu của Vpop thế hệ mới với khả năng kết hợp R&B, Pop và yếu tố âm nhạc đương đại. Ghi dấu ấn bằng hình ảnh nghệ sĩ sáng tạo, không ngừng làm mới bản thân trong hành trình âm nhạc.',
     }
 ];
 
@@ -90,7 +107,14 @@ const Speaker: React.FC = () => {
                                     onClick={() => handleSpeakerClick(speaker)}
                                 >
                                     <div className="speaker-card-image">
-                                        <img src={speaker.image} alt={speaker.name} />
+                                        <img
+                                            src={speaker.image}
+                                            alt={speaker.name}
+                                            style={{
+                                                objectPosition: speaker.objectPosition || 'center',
+                                                transform: speaker.scale ? `scale(${speaker.scale})` : 'none'
+                                            }}
+                                        />
                                         <div className="speaker-card-overlay"></div>
                                     </div>
                                     <div className="speaker-card-info">
@@ -104,8 +128,8 @@ const Speaker: React.FC = () => {
 
                     {/* Right: Detail Panel - Rendered via Portal to avoid clipping */}
                     {showDetail && createPortal(
-                        <div className="speaker-detail">
-                            <div className="speaker-detail-card">
+                        <div className="speaker-detail" onClick={() => setShowDetail(false)}>
+                            <div className="speaker-detail-card" onClick={(e) => e.stopPropagation()}>
                                 <button
                                     className="close-detail-btn"
                                     onClick={() => setShowDetail(false)}
@@ -113,23 +137,32 @@ const Speaker: React.FC = () => {
                                 >
                                     ✕
                                 </button>
-                                <div className="speaker-detail-image">
-                                    <img src={selectedSpeaker.detailImage} alt={selectedSpeaker.name} />
-                                </div>
-                                <div className="speaker-detail-content">
-                                    <h3 className="speaker-detail-name">{selectedSpeaker.name}</h3>
-                                    <p className="speaker-detail-title">{selectedSpeaker.title}</p>
-                                    <p className="speaker-detail-bio">{selectedSpeaker.bio}</p>
-                                    {selectedSpeaker.social && (
-                                        <div className="speaker-detail-social">
-                                            {selectedSpeaker.social.linkedin && (
-                                                <a href={selectedSpeaker.social.linkedin} className="social-link">LinkedIn</a>
-                                            )}
-                                            {selectedSpeaker.social.twitter && (
-                                                <a href={selectedSpeaker.social.twitter} className="social-link">Twitter</a>
-                                            )}
-                                        </div>
-                                    )}
+                                <div className="speaker-detail-flex">
+                                    <div className="speaker-detail-image">
+                                        <img
+                                            src={selectedSpeaker.detailImage}
+                                            alt={selectedSpeaker.name}
+                                            style={{
+                                                objectPosition: selectedSpeaker.objectPosition || 'center',
+                                                transform: selectedSpeaker.scale ? `scale(${selectedSpeaker.scale})` : 'none'
+                                            }}
+                                        />
+                                    </div>
+                                    <div className="speaker-detail-content">
+                                        <h3 className="speaker-detail-name">{selectedSpeaker.name}</h3>
+                                        <p className="speaker-detail-title">{selectedSpeaker.title}</p>
+                                        <p className="speaker-detail-bio">{selectedSpeaker.bio}</p>
+                                        {selectedSpeaker.social && (
+                                            <div className="speaker-detail-social">
+                                                {selectedSpeaker.social.linkedin && (
+                                                    <a href={selectedSpeaker.social.linkedin} className="social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                                                )}
+                                                {selectedSpeaker.social.twitter && (
+                                                    <a href={selectedSpeaker.social.twitter} className="social-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+                                                )}
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>,

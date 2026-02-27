@@ -89,7 +89,7 @@
 }
 
 .speaker-intro {
-    font-family: '1FTVVIP-NeueHaasGrotesk', sans-serif;
+    font-family: '1FTVVIPNeueHaasGrotesk-Reg', sans-serif;
     font-size: clamp(1.2rem, 2.5vw, 1.6rem);
     font-weight: 500;
     color: rgba(255, 255, 255, 0.8);
@@ -209,6 +209,26 @@
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Glassmorphism Tint Overlay */
+.speaker-card-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(95, 195, 228, 0.15), rgba(255, 102, 204, 0.15));
+    backdrop-filter: blur(1px);
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    /* Visible by default */
+}
+
+.speaker-card:hover .speaker-card-image::after {
+    opacity: 0;
+    /* Disappear on hover */
+    backdrop-filter: blur(0px);
+}
+
 /* Shimmer Effect on Card */
 .speaker-card-image::before {
     content: '';
@@ -230,7 +250,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     filter: grayscale(20%);
 }
 
@@ -242,7 +262,11 @@
     height: 50%;
     background: linear-gradient(to top, rgba(10, 14, 39, 0.9), transparent);
     pointer-events: none;
-    transition: height 0.4s ease;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.speaker-card:hover .speaker-card-overlay {
+    opacity: 0;
 }
 
 .speaker-card-info {
@@ -253,16 +277,20 @@
 }
 
 .speaker-card-name {
-    font-family: 'Cinzel', serif;
+    font-family: '1FTVVIPNeueHaasGrotesk-Reg', sans-serif;
     font-size: clamp(1.1rem, 2vw, 1.3rem);
     font-weight: 700;
     color: #ffffff;
     margin-bottom: 0.25rem;
     transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 
 .speaker-card-title {
-    font-family: 'Inter', sans-serif;
+    font-family: '1FTVVIPNeueHaasGrotesk-Reg', sans-serif;
     font-size: clamp(0.85rem, 1.5vw, 1rem);
     font-weight: 400;
     color: rgba(255, 255, 255, 0.7);
@@ -406,9 +434,15 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    overflow-y: auto;
+    overflow: hidden;
     animation: modalSlideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
+}
+
+.speaker-detail-flex {
+    display: flex;
+    gap: var(--spacing-2xl);
+    align-items: center;
 }
 
 @keyframes modalSlideUp {
@@ -501,13 +535,12 @@
 }
 
 .speaker-detail-image {
-    width: 100%;
-    height: 300px;
+    flex: 0 0 320px;
+    height: 480px;
+    /* Matching 2:3 ratio of cards */
     border-radius: 20px;
     overflow: hidden;
-    margin-bottom: var(--spacing-lg);
     border: 2px solid rgba(255, 255, 255, 0.1);
-    flex-shrink: 0;
     position: relative;
     transition: all 0.4s ease;
 }
@@ -537,7 +570,7 @@
 }
 
 .speaker-detail-content {
-    text-align: center;
+    text-align: left;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -545,7 +578,7 @@
 }
 
 .speaker-detail-name {
-    font-family: 'Cinzel', serif;
+    font-family: '1FTVVIPNeueHaasGrotesk-Reg', sans-serif;
     font-size: clamp(1.5rem, 2.5vw, 2rem);
     font-weight: 700;
     background: linear-gradient(135deg, #ffa347, #ff66cc);
@@ -553,38 +586,34 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: var(--spacing-xs);
-    animation: fadeInUp 0.6s ease-out 0.2s both;
 }
 
 .speaker-detail-title {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(1rem, 1.8vw, 1.2rem);
-    font-weight: 400;
+    font-family: '1FTVVIPNeueHaasGrotesk-Reg', sans-serif;
+    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+    font-weight: 500;
     color: #5fc3e4;
     margin-bottom: var(--spacing-lg);
-    animation: fadeInUp 0.6s ease-out 0.3s both;
 }
 
 .speaker-detail-bio {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    font-family: '1FTVVIPNeueHaasGrotesk-Reg', sans-serif;
+    font-size: clamp(1rem, 1.8vw, 1.1rem);
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 1.6;
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: var(--spacing-lg);
     text-align: left;
-    animation: fadeInUp 0.6s ease-out 0.4s both;
 }
 
 .speaker-detail-social {
     display: flex;
     gap: var(--spacing-md);
-    justify-content: center;
-    animation: fadeInUp 0.6s ease-out 0.5s both;
+    justify-content: flex-start;
 }
 
 .social-link {
-    font-family: 'Inter', sans-serif;
+    font-family: '1FTVVIPNeueHaasGrotesk-Reg', sans-serif;
     font-size: 0.9rem;
     font-weight: 400;
     color: #ffffff;
@@ -655,14 +684,27 @@
     .speaker-detail-card {
         max-height: 85vh;
         padding: var(--spacing-lg);
+        overflow-y: auto;
+    }
+
+    .speaker-detail-flex {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        align-items: center;
     }
 
     .speaker-detail-image {
-        height: 250px;
+        flex: 0 0 250px;
+        height: 375px;
+        width: 250px;
     }
 
-    .speaker-detail-card {
-        min-height: auto;
+    .speaker-detail-content {
+        text-align: center;
+    }
+
+    .speaker-detail-social {
+        justify-content: center;
     }
 
     .speaker-card {
