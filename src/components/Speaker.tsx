@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import './Speaker.css';
-import speaker1 from '../assets/speaker/ANH1.png';
-import speaker1Detail from '../assets/speaker/details/ANH1.png';
 import feiFeiLi from '../assets/speaker/fei_fei_li.jpg';
 import nguyenDacTinh from '../assets/speaker/nguyen_dac_tinh.jpg';
 import phuongVu from '../assets/speaker/phuong_vu.jpg';
