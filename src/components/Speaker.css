@@ -295,6 +295,7 @@
     font-weight: 400;
     color: rgba(255, 255, 255, 0.7);
     transition: all 0.3s ease;
+    white-space: pre-line;
 }
 
 /* Card Hover - Enhanced */
@@ -594,6 +595,7 @@
     font-weight: 500;
     color: #5fc3e4;
     margin-bottom: var(--spacing-lg);
+    white-space: pre-line;
 }
 
 .speaker-detail-bio {

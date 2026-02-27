@@ -29,7 +29,7 @@ const speakers: ISpeaker[] = [
     {
         id: 1,
         name: 'Bà Fei-Fei Li',
-        title: 'Doanh nhân - Nhà nghiên cứu trí tuệ nhân tạo',
+        title: 'Doanh nhân - Nhà nghiên cứu\ntrí tuệ nhân tạo',
         image: feiFeiLi,
         detailImage: feiFeiLi,
         bio: 'Đóng góp tiên phong trong lĩnh vực thị giác máy tính. Đồng sáng lập tổ chức phi lợi nhuận thúc đẩy sự đa dạng trong AI (AI4ALL) và là giáo sư Khoa Khoa học máy tính của Đại học Stanford.',
