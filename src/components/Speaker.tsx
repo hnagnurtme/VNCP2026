@@ -17,6 +17,7 @@ interface ISpeaker {
     bio: string;
     objectPosition?: string;
     scale?: number;
+    gender?: 'Her' | 'Him';
     social?: {
         linkedin?: string;
         twitter?: string;
@@ -31,7 +32,8 @@ const speakers: ISpeaker[] = [
         image: feiFeiLi,
         detailImage: feiFeiLi,
         bio: 'Đóng góp tiên phong trong lĩnh vực thị giác máy tính. Đồng sáng lập tổ chức phi lợi nhuận thúc đẩy sự đa dạng trong AI (AI4ALL) và là giáo sư Khoa Khoa học máy tính của Đại học Stanford.',
-        objectPosition: '32% center'
+        objectPosition: '32% center',
+        gender: 'Her'
     },
     {
         id: 2,
@@ -41,7 +43,8 @@ const speakers: ISpeaker[] = [
         detailImage: nguyenDacTinh,
         bio: 'Hoạt động trong lĩnh vực marketing công nghệ và giải pháp vé điện tử. Tập trung xây dựng hệ sinh thái MarTech tại Việt Nam, kết nối cộng đồng marketing, công nghệ và dữ liệu nhằm thúc đẩy chuyển đổi số trong doanh nghiệp.',
         objectPosition: '35% center',
-        scale: 1.2
+        scale: 1.2,
+        gender: 'Him'
     },
     {
         id: 3,
@@ -50,7 +53,8 @@ const speakers: ISpeaker[] = [
         image: tuLong,
         detailImage: tuLong,
         bio: 'Ghi dấu ấn qua nhiều chương trình truyền hình và sân khấu lớn, góp phần lan tỏa giá trị văn hóa dân tộc đến khán giả trẻ bằng tinh thần sáng tạo và đổi mới, kết hợp nghệ thuật truyền thống và yếu tố đương đại.',
-        objectPosition: '40% center'
+        objectPosition: '40% center',
+        gender: 'Him'
     },
     {
         id: 4,
@@ -59,7 +63,8 @@ const speakers: ISpeaker[] = [
         image: victorVu,
         detailImage: victorVu,
         bio: 'Một trong những đạo diễn nổi bật của điện ảnh Việt Nam đương đại, được biết đến với phong cách kể chuyện giàu chiều sâu và ngôn ngữ hình ảnh hiện đại. Chú trọng khai thác yếu tố tâm lý, văn hóa và bản sắc con người trong các tác phẩm, mang đến góc nhìn sáng tạo và giàu tính điện ảnh.',
-        objectPosition: '46% center'
+        objectPosition: '46% center',
+        gender: 'Him'
     },
     {
         id: 5,
@@ -68,6 +73,7 @@ const speakers: ISpeaker[] = [
         image: phuongVu,
         detailImage: phuongVu,
         bio: 'Hoạt động trong lĩnh vực sản xuất nội dung và nghệ thuật thị giác với phong cách kể chuyện hiện đại, chú trọng ngôn ngữ hình ảnh và cảm xúc. Xây dựng câu chuyện với chủ đề về người trẻ, bản sắc và sự dịch chuyển trong đời sống đương đại.',
+        gender: 'Him'
     },
     {
         id: 6,
@@ -76,6 +82,7 @@ const speakers: ISpeaker[] = [
         image: soobin,
         detailImage: soobin,
         bio: 'Một trong những nghệ sĩ tiêu biểu của Vpop thế hệ mới với khả năng kết hợp R&B, Pop và yếu tố âm nhạc đương đại. Ghi dấu ấn bằng hình ảnh nghệ sĩ sáng tạo, không ngừng làm mới bản thân trong hành trình âm nhạc.',
+        gender: 'Him'
     }
 ];
 
@@ -165,7 +172,7 @@ const Speaker: React.FC = () => {
                                             className="speaker-get-in-touch"
                                             onClick={() => setShowDetail(false)}
                                         >
-                                            <span className="speaker-get-in-touch-text">Get in Touch with them</span>
+                                            <span className="speaker-get-in-touch-text">Get in Touch with {selectedSpeaker.gender || 'Him'}</span>
                                             <span className="speaker-get-in-touch-arrow">→</span>
                                         </a>
                                     </div>
