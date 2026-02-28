@@ -28,7 +28,7 @@ const agendaData: AgendaFloor[] = [
         days: [
             {
                 weekdayNum: '1',
-                weekdayText: 'THỨ 2 (23/11)',
+                weekdayText: 'THỨ 2 (18/11)',
                 colorClass: 'cassette-red',
                 events: [
                     {
@@ -43,7 +43,7 @@ const agendaData: AgendaFloor[] = [
             },
             {
                 weekdayNum: '2',
-                weekdayText: 'THỨ 3 (24/11)',
+                weekdayText: 'THỨ 3 (19/11)',
                 colorClass: 'cassette-green',
                 events: [
                     {
@@ -58,7 +58,7 @@ const agendaData: AgendaFloor[] = [
             },
             {
                 weekdayNum: '3',
-                weekdayText: 'THỨ 4 (25/11)',
+                weekdayText: 'THỨ 4 (20/11)',
                 colorClass: 'cassette-blue',
                 events: [
                     {
@@ -80,7 +80,7 @@ const agendaData: AgendaFloor[] = [
         days: [
             {
                 weekdayNum: '4',
-                weekdayText: 'THỨ 5 (26/11)',
+                weekdayText: 'THỨ 5 (21/11)',
                 colorClass: 'cassette-pink',
                 events: [
                     {
@@ -95,7 +95,7 @@ const agendaData: AgendaFloor[] = [
             },
             {
                 weekdayNum: '5',
-                weekdayText: 'THỨ 6 (27/11)',
+                weekdayText: 'THỨ 6 (22/11)',
                 colorClass: 'cassette-cyan',
                 events: [
                     {
@@ -117,7 +117,7 @@ const agendaData: AgendaFloor[] = [
         days: [
             {
                 weekdayNum: '6',
-                weekdayText: 'THỨ 7 (28/11)',
+                weekdayText: 'THỨ 7 (23/11)',
                 colorClass: 'cassette-dark-green',
                 events: [
                     {
@@ -132,7 +132,7 @@ const agendaData: AgendaFloor[] = [
             },
             {
                 weekdayNum: '7',
-                weekdayText: 'CHỦ NHẬT (29/11)',
+                weekdayText: 'CHỦ NHẬT (24/11)',
                 colorClass: 'cassette-orange',
                 events: [
                     {

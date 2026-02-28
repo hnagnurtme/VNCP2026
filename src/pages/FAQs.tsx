@@ -226,7 +226,7 @@ const getFaqGroups = (navigateTo: (section: 'contact' | 'agenda') => void): FAQG
                     <>
                         <div className="faq-info-row">
                             <span className="faq-info-label">Thời gian</span>
-                            <span className="faq-info-value">23/11/2026 – 29/11/2026</span>
+                            <span className="faq-info-value">18/11/2026 – 24/11/2026</span>
                         </div>
                         <div className="faq-info-row">
                             <span className="faq-info-label">Địa điểm</span>

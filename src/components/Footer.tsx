@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
                     <div className="footer-info">
                         <div className="info-section">
                             <h4 className="info-title">Thời gian</h4>
-                            <p className="info-text">23/11/2026 - 29/11/2026</p>
+                            <p className="info-text">18/11/2026 - 24/11/2026</p>
                         </div>
 
                         <div className="info-section">
