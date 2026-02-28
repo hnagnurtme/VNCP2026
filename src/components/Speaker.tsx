@@ -160,6 +160,14 @@ const Speaker: React.FC = () => {
                                                 )}
                                             </div>
                                         )}
+                                        <a
+                                            href="#contact"
+                                            className="speaker-get-in-touch"
+                                            onClick={() => setShowDetail(false)}
+                                        >
+                                            <span className="speaker-get-in-touch-text">Get in Touch with them</span>
+                                            <span className="speaker-get-in-touch-arrow">→</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
