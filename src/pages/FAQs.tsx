@@ -241,11 +241,136 @@ const getFaqGroups = (navigateTo: (section: 'contact' | 'agenda') => void): FAQG
             },
         ],
     },
+    {
+        id: 4,
+        label: 'Các câu hỏi khác',
+        emoji: '❓',
+        items: [
+            {
+                id: 13,
+                question: 'Tôi có thể đăng ký làm tình nguyện viên cho VCP 2026 không?',
+                answer: (
+                    <p>
+                        Ban tổ chức rất hoan nghênh tinh thần của bạn! Cổng đăng ký tình nguyện viên (VCP Volunteers) sẽ chính thức mở vào tháng 9/2026 tại mục [Cộng đồng] trên website. Hãy theo dõi fanpage để không bỏ lỡ thông báo nhé.
+                    </p>
+                ),
+            },
+            {
+                id: 14,
+                question: 'Sự kiện có khu vực trông giữ xe và ăn uống không?',
+                answer: (
+                    <p>
+                        Có, The Global City có khu vực bãi đậu xe rộng rãi cho cả xe máy và ô tô. Ngoài ra, trong khuôn viên sự kiện sẽ có khu vực Food Court với các món ăn nhẹ và đồ uống đa dạng để phục vụ khách tham quan.
+                    </p>
+                ),
+            },
+            {
+                id: 15,
+                question: 'Nếu tôi là doanh nghiệp muốn đồng hành hoặc tài trợ cho sự kiện thì liên hệ ai?',
+                answer: (
+                    <p>
+                        Rất cảm ơn sự quan tâm của quý doanh nghiệp. Vui lòng gửi thông tin đề xuất hợp tác qua email: <strong>partnership@vcp2026.vn</strong> hoặc để lại lời nhắn tại mục [Get in Touch]. Ban đối ngoại của chúng tôi sẽ liên hệ lại trong vòng 24 giờ.
+                    </p>
+                ),
+            },
+            {
+                id: 16,
+                question: 'Trẻ em có được tham gia sự kiện không? Có cần vé riêng cho trẻ em không?',
+                answer: (
+                    <p>
+                        Trẻ em hoàn toàn được tham gia và không cần vé riêng. Tuy nhiên, do một số khu vực có thiết bị công nghệ hiện đại và âm thanh lớn (như Main Concert), phụ huynh vui lòng giám sát trẻ nhỏ để đảm bảo an toàn và trải nghiệm tốt nhất.
+                    </p>
+                ),
+            },
+            {
+                id: 17,
+                question: 'Sự kiện có cung cấp Wi-Fi miễn phí để khách tham quan trải nghiệm AR/VR không?',
+                answer: (
+                    <p>
+                        Có, ban tổ chức cung cấp hệ thống Wi-Fi tốc độ cao miễn phí phủ sóng toàn bộ các tầng trải nghiệm để đảm bảo bạn có thể quét mã AR và tương tác số mượt mà nhất.
+                    </p>
+                ),
+            },
+            {
+                id: 18,
+                question: 'Tôi có thể mang thú cưng vào không gian sự kiện không?',
+                answer: (
+                    <p>
+                        Rất tiếc, để đảm bảo vệ sinh và an toàn cho các thiết bị công nghệ cũng như các tác phẩm trưng bày, thú cưng không được phép mang vào khu vực bên trong triển lãm. Hy vọng bạn thông cảm.
+                    </p>
+                ),
+            },
+            {
+                id: 19,
+                question: 'Có khu vực sơ cứu y tế tại sự kiện không?',
+                answer: (
+                    <p>
+                        Luôn có đội ngũ y tế và xe cấp cứu túc trực 24/7 tại khu vực sảnh chính và gần cổng ra vào để hỗ trợ kịp thời trong mọi tình huống khẩn cấp.
+                    </p>
+                ),
+            },
+            {
+                id: 20,
+                question: 'Tôi bị mất mã QR "Touch ID" đã nhận qua email, làm sao để lấy lại?',
+                answer: (
+                    <p>
+                        Bạn có thể truy cập lại link tra cứu vé trong email xác nhận ban đầu hoặc liên hệ quầy Support tại sảnh sự kiện, cung cấp số điện thoại/email đã đăng ký để nhân viên hỗ trợ cấp lại mã mới.
+                    </p>
+                ),
+            },
+            {
+                id: 21,
+                question: 'VCP 2026 có kế hoạch tổ chức tại các thành phố khác ngoài TP.HCM (như Hà Nội hay Đà Nẵng) không?',
+                answer: (
+                    <p>
+                        VCP 2026 hiện là sự kiện trọng điểm tại TP.HCM. Tuy nhiên, chúng tôi đang xem xét kế hoạch "VCP Tour" tại Hà Nội vào đầu năm 2027. Hãy theo dõi website để cập nhật những thông tin mới nhất nhé!
+                    </p>
+                ),
+            },
+            {
+                id: 22,
+                question: 'Sự kiện có quy định về trang phục (dresscode) cụ thể không?',
+                answer: (
+                    <p>
+                        Không có quy định bắt buộc, nhưng chúng tôi khuyến khích bạn mặc trang phục mang phong cách <strong>Cyberpunk</strong> hoặc <strong>Modern Heritage</strong> để lên hình thật ấn tượng trong không gian "Dấu Chạm Văn Hóa".
+                    </p>
+                ),
+            },
+            {
+                id: 23,
+                question: 'Tôi có thể quay phim, chụp ảnh bằng máy chuyên nghiệp tại sự kiện không?',
+                answer: (
+                    <p>
+                        Bạn có thể tự do chụp ảnh bằng điện thoại. Đối với máy ảnh chuyên nghiệp hoặc ekip quay phim thương mại, vui lòng đăng ký thẻ Media tại quầy tiếp tân để được hỗ trợ vị trí tác nghiệp tốt nhất.
+                    </p>
+                ),
+            },
+            {
+                id: 24,
+                question: 'Sự kiện có hỗ trợ lối đi và tiện ích cho người khuyết tật không?',
+                answer: (
+                    <p>
+                        Tất cả các khu vực tại The Global City đều được thiết kế có lối đi riêng cho xe lăn và thang máy hỗ trợ, đảm bảo mọi khách tham quan đều có thể trải nghiệm sự kiện một cách thuận tiện nhất.
+                    </p>
+                ),
+            },
+            {
+                id: 25,
+                question: 'Sau khi sự kiện kết thúc, tôi có thể xem lại các nội dung Talkshow trực tuyến không?',
+                answer: (
+                    <p>
+                        Toàn bộ các buổi Talkshow chính thức sẽ được ghi hình và phát lại (Replay) trên website VCP 2026 trong vòng 1 tuần sau khi sự kiện kết thúc dành cho những bạn có mã "Touch ID".
+                    </p>
+                ),
+            },
+        ],
+    },
 ];
 
 const FAQs: React.FC<FAQsProps> = ({ onNavigate }) => {
     const [openItems, setOpenItems] = useState<Set<number>>(new Set());
     const [searchQuery, setSearchQuery] = useState('');
+    const [isSection4Visible, setIsSection4Visible] = useState(false);
 
     const toggle = (id: number) => {
         setOpenItems(prev => {
@@ -344,41 +469,72 @@ const FAQs: React.FC<FAQsProps> = ({ onNavigate }) => {
 
                 {/* FAQ Groups */}
                 {hasResults ? (
-                    filteredGroups.map((group: FAQGroup, gi: number) => (
-                        <div className="faqs-group" key={group.id}>
-                            <div className="faqs-group-label">
-                                <span className="faqs-group-number">{gi + 1}</span>
-                                <span>{group.label}</span>
-                            </div>
+                    filteredGroups.map((group: FAQGroup, gi: number) => {
+                        const isSection4 = group.id === 4;
+                        const shouldShowSection = !isSection4 || isSection4Visible || searchQuery.trim() !== '';
 
-                            {group.items.map((item: FAQItem) => (
-                                <div
-                                    key={item.id}
-                                    className={`faq-item${openItems.has(item.id) ? ' open' : ''}`}
-                                >
-                                    <div
-                                        className="faq-question"
-                                        onClick={() => toggle(item.id)}
-                                        role="button"
-                                        aria-expanded={openItems.has(item.id)}
-                                        tabIndex={0}
-                                        onKeyDown={e => e.key === 'Enter' && toggle(item.id)}
+                        if (!shouldShowSection) {
+                            return (
+                                <div className="faqs-reveal-container" key="section-4-reveal">
+                                    <button
+                                        className="faqs-reveal-btn"
+                                        onClick={() => setIsSection4Visible(true)}
                                     >
-                                        <span className="faq-question-text">
-                                            {item.id}. {item.question}
-                                        </span>
-                                        <span className="faq-icon">+</span>
-                                    </div>
+                                        <span>4. Các câu hỏi khác</span>
+                                        <span className="reveal-dots">...</span>
+                                    </button>
+                                </div>
+                            );
+                        }
 
-                                    <div className="faq-answer">
-                                        <div className="faq-answer-content">
-                                            {item.answer}
+                        return (
+                            <div className="faqs-group" key={group.id}>
+                                <div className="faqs-group-label">
+                                    <span className="faqs-group-number">{gi + 1}</span>
+                                    <span>{group.label}</span>
+                                </div>
+
+                                {group.items.map((item: FAQItem) => (
+                                    <div
+                                        key={item.id}
+                                        className={`faq-item${openItems.has(item.id) ? ' open' : ''}`}
+                                    >
+                                        <div
+                                            className="faq-question"
+                                            onClick={() => toggle(item.id)}
+                                            role="button"
+                                            aria-expanded={openItems.has(item.id)}
+                                            tabIndex={0}
+                                            onKeyDown={e => e.key === 'Enter' && toggle(item.id)}
+                                        >
+                                            <span className="faq-question-text">
+                                                {item.id}. {item.question}
+                                            </span>
+                                            <span className="faq-icon">+</span>
+                                        </div>
+
+                                        <div className="faq-answer">
+                                            <div className="faq-answer-content">
+                                                {item.answer}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
-                    ))
+                                ))}
+
+                                {isSection4 && searchQuery.trim() === '' && (
+                                    <div className="faqs-collapse-wrapper">
+                                        <button
+                                            className="faqs-collapse-btn"
+                                            onClick={() => setIsSection4Visible(false)}
+                                        >
+                                            <span>Thu gọn</span>
+                                            <span className="collapse-icon">↑</span>
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })
                 ) : (
                     <div className="faqs-no-results">
                         <div className="no-results-icon">📂</div>
