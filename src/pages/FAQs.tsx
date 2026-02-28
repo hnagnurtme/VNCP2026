@@ -363,6 +363,15 @@ const getFaqGroups = (navigateTo: (section: 'contact' | 'agenda') => void): FAQG
                     </p>
                 ),
             },
+            {
+                id: 26,
+                question: 'Tại sự kiện có khu vực gửi đồ (Lockers) cho khách tham quan không?',
+                answer: (
+                    <p>
+                        Để bạn có thể thoải mái trải nghiệm các hoạt động tương tác, ban tổ chức có bố trí <strong>khu vực gửi đồ miễn phí</strong> tại sảnh chính. Tuy nhiên, chúng tôi khuyến khích bạn không mang theo các vật dụng có giá trị lớn hoặc quá cồng kềnh để đảm bảo an toàn.
+                    </p>
+                ),
+            },
         ],
     },
 ];
