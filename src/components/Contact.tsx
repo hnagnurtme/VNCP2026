@@ -204,7 +204,7 @@ const Contact: React.FC = () => {
 
                         <p className="thankyou-sub">
                             Hẹn gặp lại bạn tại sự kiện<br />
-                            <span>18/11/2026 – 24/11/2026 · The Global City, TP.HCM</span>
+                            <span>18/11/2026 – 24/11/2026 · The Global City, đường Đỗ Xuân Hợp, phường Bình Trưng, Thủ Đức, TPHCM</span>
                         </p>
 
                         <div className="thankyou-cta-box">

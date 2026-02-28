@@ -230,7 +230,7 @@ const getFaqGroups = (navigateTo: (section: 'contact' | 'agenda') => void): FAQG
                         </div>
                         <div className="faq-info-row">
                             <span className="faq-info-label">Địa điểm</span>
-                            <span className="faq-info-value">The Global City, Q. Thủ Đức, TP.HCM</span>
+                            <span className="faq-info-value">The Global City, đường Đỗ Xuân Hợp, phường Bình Trưng, Thủ Đức, TPHCM</span>
                         </div>
                         <div className="faq-info-row">
                             <span className="faq-info-label">Lịch trình</span>

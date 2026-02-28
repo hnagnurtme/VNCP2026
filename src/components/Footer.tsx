@@ -26,8 +26,8 @@ const Footer: React.FC = () => {
                         <div className="info-section">
                             <h4 className="info-title">Địa điểm</h4>
                             <p className="info-text">The Global City</p>
-                            <p className="info-text">Đ. Đỗ Xuân Hợp, Phường An Khánh</p>
-                            <p className="info-text">Thủ Đức, Thành phố Hồ Chí Minh</p>
+                            <p className="info-text">Đường Đỗ Xuân Hợp</p>
+                            <p className="info-text">Phường Bình Trưng, Thủ Đức, TPHCM</p>
                         </div>
 
                         <div className="social-links">
