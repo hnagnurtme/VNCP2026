@@ -6,6 +6,7 @@ const NAV_ITEMS = [
     { label: 'Problems', id: 'problems' },
     { label: 'Agenda', id: 'agenda' },
     { label: 'Speakers', id: 'speakers' },
+    { label: 'News', id: 'news' },
     { label: 'Get in Touch', id: 'contact' },
 ];
 

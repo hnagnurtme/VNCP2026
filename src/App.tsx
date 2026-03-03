@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Problems from './components/Problems';
 import Agenda from './components/Agenda';
 import Speaker from './components/Speaker';
+import News from './components/News';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import FAQs from './pages/FAQs';
@@ -28,6 +29,7 @@ const MainPage = () => (
             <Agenda />
         </div>
         <Speaker />
+        <News />
         <Contact />
         <Footer />
     </>
