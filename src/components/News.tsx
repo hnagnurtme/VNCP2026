@@ -95,19 +95,62 @@ interface Comment {
     time: string;
 }
 
+const COMMENT_NAMES = [
+    'Minh Anh', 'Khánh Linh', 'Tuấn Nguyễn', 'Phương Thảo', 'Bảo Châu',
+    'Hữu Đức', 'Ngọc Hân', 'Quốc Bảo', 'Thu Hà', 'Gia Huy',
+    'Lan Anh', 'Đức Minh', 'Thùy Dung', 'Nhật Hào', 'Mỹ Linh',
+    'Tiến Dũng', 'Thanh Tuyền', 'An Khoa', 'Yến Nhi', 'Hoàng Long',
+];
+
+const COMMENT_TEXTS = [
+    'Sự kiện này trông thực sự hấp dẫn! Chờ mãi rồi 🔥',
+    'Mình đã đăng ký vé rồi, hy vọng gặp mọi người ở VCP 2026 nhé!',
+    'Chương trình năm nay quá xịn, đặc biệt phần workshop AI!',
+    'Ai cũng đi VCP 2026 hết vậy, mình cũng phải đặt vé thôi 😄',
+    'Nghe speaker lineup là mình book vé liền không cần suy nghĩ 😍',
+    'Không gian tương tác đa giác quan nghe có vẻ rất thú vị!',
+    'Đây chắc chắn là sự kiện không thể bỏ lỡ của năm 2026 🙌',
+    'Hy vọng còn vé early bird, ai biết thông tin không chia sẻ với mình!',
+    'VCP 2026 lần này còn có concert nữa, quá là đỉnh!',
+    'Mình đặc biệt mong chờ phần triển lãm nghệ thuật tương tác!',
+    'Xem agenda mà mình không biết chọn hoạt động nào nữa, cái gì cũng hay!',
+    'Gen Z mà bỏ qua VCP 2026 là thiệt thòi lắm đó 👀',
+    'Bạn thân mình rủ đi cả nhóm 10 người, hype lắm!',
+    'Nghe nói có trải nghiệm VR/AR, mình tò mò kinh khủng!',
+    'Sự kiện kết hợp văn hóa và công nghệ thế này quá phù hợp với mình!',
+    'Đã follow trang để cập nhật thông tin thêm rồi, mọi người nhớ follow nhé!',
+    'Soobin Hoàng Sơn mà hát ở đây thì mình đi không cần vé 😂',
+    'Mình hay tham gia mấy sự kiện như này lắm nhưng VCP 2026 hình như khác hơn!',
+    'Touch ID độc bản nghe hay quá, muốn có một cái lam kỷ niệm!',
+    'The Global City là địa điểm tổ chức rất ổn, đi lại dễ dàng!',
+];
+
+const SEED_COMMENTS: Comment[] = Array.from({ length: 200 }, (_, i) => {
+    const day = String(((i * 3) % 28) + 1).padStart(2, '0');
+    const month = i < 100 ? '10' : '11';
+    return {
+        id: i + 1,
+        name: COMMENT_NAMES[i % COMMENT_NAMES.length],
+        text: COMMENT_TEXTS[i % COMMENT_TEXTS.length],
+        time: `${day}/${month}/2026`,
+    };
+});
+
 const News: React.FC = () => {
-    const [comments, setComments] = useState<Comment[]>([
-        { id: 1, name: 'Minh Anh', text: 'Sự kiện này trông thực sự hấp dẫn! Chờ mãi rồi 🔥', time: '03/03/2026' },
-        { id: 2, name: 'Khánh Linh', text: 'Mình đã bắt đầu đăng ký vé rồi, hy vọng gặp mọi người ở VCP 2026 nhé!', time: '03/03/2026' },
-    ]);
+    const [comments, setComments] = useState<Comment[]>(SEED_COMMENTS);
+    const [visibleCount, setVisibleCount] = useState(3);
     const [name, setName] = useState('');
     const [text, setText] = useState('');
+
+    const displayedComments = [...comments].reverse().slice(0, visibleCount);
+    const hasMore = visibleCount < comments.length;
 
     const handlePost = () => {
         if (!name.trim() || !text.trim()) return;
         const now = new Date();
         const dateStr = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
         setComments(prev => [...prev, { id: Date.now(), name: name.trim(), text: text.trim(), time: dateStr }]);
+        setVisibleCount(prev => prev + 1);
         setName('');
         setText('');
     };
@@ -188,7 +231,7 @@ const News: React.FC = () => {
                             </div>
 
                             <div className="news-comments__list">
-                                {comments.map(c => (
+                                {displayedComments.map(c => (
                                     <div key={c.id} className="news-comment-item">
                                         <div className="news-comment-avatar">
                                             {c.name.charAt(0).toUpperCase()}
@@ -203,6 +246,15 @@ const News: React.FC = () => {
                                     </div>
                                 ))}
                             </div>
+
+                            {hasMore && (
+                                <button
+                                    className="news-comments__show-more"
+                                    onClick={() => setVisibleCount(prev => prev + 10)}
+                                >
+                                    Hiển thị thêm ({comments.length - visibleCount} bình luận)
+                                </button>
+                            )}
 
                             <div className="news-comments__form">
                                 <input

@@ -522,6 +522,26 @@
     cursor: not-allowed;
 }
 
+.news-comments__show-more {
+    align-self: center;
+    padding: 0.45rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid rgba(192, 132, 252, 0.4);
+    background: transparent;
+    color: rgba(192, 132, 252, 0.9);
+    font-family: '1FTVVIPNeueHaasGrotesk-Reg', 'Helvetica Neue', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.news-comments__show-more:hover {
+    background: rgba(192, 132, 252, 0.12);
+    border-color: rgba(192, 132, 252, 0.7);
+    color: #c084fc;
+}
+
 /* ---- Responsive ---- */
 
 @media (max-width: 1024px) {
