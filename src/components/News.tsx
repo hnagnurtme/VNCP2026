@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './News.css';
 import newsThumb1 from '../assets/news_thumb_1.png';
 import newsThumb6 from '../assets/news_thumb_6.png';
@@ -88,7 +88,30 @@ const articles: NewsArticle[] = [
 const featuredArticles = articles.filter(a => a.image);
 const headlineArticles = articles.filter(a => !a.image);
 
+interface Comment {
+    id: number;
+    name: string;
+    text: string;
+    time: string;
+}
+
 const News: React.FC = () => {
+    const [comments, setComments] = useState<Comment[]>([
+        { id: 1, name: 'Minh Anh', text: 'Sự kiện này trông thực sự hấp dẫn! Chờ mãi rồi 🔥', time: '03/03/2026' },
+        { id: 2, name: 'Khánh Linh', text: 'Mình đã bắt đầu đăng ký vé rồi, hy vọng gặp mọi người ở VCP 2026 nhé!', time: '03/03/2026' },
+    ]);
+    const [name, setName] = useState('');
+    const [text, setText] = useState('');
+
+    const handlePost = () => {
+        if (!name.trim() || !text.trim()) return;
+        const now = new Date();
+        const dateStr = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
+        setComments(prev => [...prev, { id: Date.now(), name: name.trim(), text: text.trim(), time: dateStr }]);
+        setName('');
+        setText('');
+    };
+
     return (
         <section id="news" className="news-section" aria-label="Tin tức VCP 2026">
             {/* Background blobs */}
@@ -133,26 +156,80 @@ const News: React.FC = () => {
                     </article>
                 )}
 
-                {/* Lower section: unified frame with headlines LEFT + side cards RIGHT */}
+                {/* Lower section: unified frame with left col + side cards RIGHT */}
                 <div className="news-lower-frame">
-                    {/* Headlines — left column */}
-                    <div className="news-headlines">
-                        <div className="news-headlines__header">
-                            <span className="news-headlines__label">Đọc thêm</span>
-                            <div className="news-headlines__divider" aria-hidden="true" />
+                    {/* Left column: headlines + comments */}
+                    <div className="news-left-col">
+                        {/* Headlines */}
+                        <div className="news-headlines">
+                            <div className="news-headlines__header">
+                                <span className="news-headlines__label">Đọc thêm</span>
+                                <div className="news-headlines__divider" aria-hidden="true" />
+                            </div>
+                            <ol className="news-headlines__list">
+                                {headlineArticles.map((article, idx) => (
+                                    <li key={article.id} className="news-headline-item">
+                                        <span className="news-headline-num">{String(idx + 1).padStart(2, '0')}</span>
+                                        <div className="news-headline-content">
+                                            <span className="news-headline-tag">{article.category}</span>
+                                            <h4 className="news-headline-title">{article.title}</h4>
+                                        </div>
+                                        <time className="news-headline-date">{article.date}</time>
+                                    </li>
+                                ))}
+                            </ol>
                         </div>
-                        <ol className="news-headlines__list">
-                            {headlineArticles.map((article, idx) => (
-                                <li key={article.id} className="news-headline-item">
-                                    <span className="news-headline-num">{String(idx + 1).padStart(2, '0')}</span>
-                                    <div className="news-headline-content">
-                                        <span className="news-headline-tag">{article.category}</span>
-                                        <h4 className="news-headline-title">{article.title}</h4>
+
+                        {/* Comments */}
+                        <div className="news-comments">
+                            <div className="news-comments__header">
+                                <span className="news-comments__label">💬 Thảo luận</span>
+                                <span className="news-comments__count">{comments.length} bình luận</span>
+                            </div>
+
+                            <div className="news-comments__list">
+                                {comments.map(c => (
+                                    <div key={c.id} className="news-comment-item">
+                                        <div className="news-comment-avatar">
+                                            {c.name.charAt(0).toUpperCase()}
+                                        </div>
+                                        <div className="news-comment-body">
+                                            <div className="news-comment-meta">
+                                                <span className="news-comment-name">{c.name}</span>
+                                                <time className="news-comment-time">{c.time}</time>
+                                            </div>
+                                            <p className="news-comment-text">{c.text}</p>
+                                        </div>
                                     </div>
-                                    <time className="news-headline-date">{article.date}</time>
-                                </li>
-                            ))}
-                        </ol>
+                                ))}
+                            </div>
+
+                            <div className="news-comments__form">
+                                <input
+                                    className="news-comment-input"
+                                    type="text"
+                                    placeholder="Tên của bạn..."
+                                    value={name}
+                                    onChange={e => setName(e.target.value)}
+                                    maxLength={40}
+                                />
+                                <textarea
+                                    className="news-comment-textarea"
+                                    placeholder="Chia sẻ cảm nghĩ của bạn về VCP 2026..."
+                                    value={text}
+                                    onChange={e => setText(e.target.value)}
+                                    rows={3}
+                                    maxLength={300}
+                                />
+                                <button
+                                    className="news-comment-submit"
+                                    onClick={handlePost}
+                                    disabled={!name.trim() || !text.trim()}
+                                >
+                                    Đăng bình luận →
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Side image cards — right column */}
